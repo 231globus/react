@@ -1,9 +1,9 @@
 import { render } from '@testing-library/react';
-import App from './App';
+import Cards from './Cards';
 import React from 'react';
 
-test('Renders main page correctly', () => {
-  const { getByText } = render(<App />);
+test('Render component App', () => {
+  const { getByText } = render(<Cards />);
   const linkElement = getByText(/Hello/i);
   expect(linkElement).toBeInTheDocument();
 });
