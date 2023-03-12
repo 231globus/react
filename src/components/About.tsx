@@ -3,9 +3,9 @@ import React from 'react';
 class About extends React.Component {
   render() {
     return (
-      <>
-        <h1>Привет! Меня зовут Слава</h1>
-      </>
+      <section className="content">
+        <div className="about">About me</div>
+      </section>
     );
   }
 }

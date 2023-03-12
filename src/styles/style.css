@@ -1,1 +1,14 @@
-@import './normalize.css';
+@import './normalize';
+@import './header';
+@import './footer';
+
+#root {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  min-height: calc(100vh - 100px);
+}

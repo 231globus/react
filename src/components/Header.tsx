@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 class Header extends React.Component {
   render() {
     return (
-      <header>
+      <header className="header">
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
       </header>
