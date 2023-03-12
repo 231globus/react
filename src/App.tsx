@@ -1,10 +1,10 @@
-import About from './components/About';
-import CardsList from './components/CardsList';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import ErrorPage from './pages/ErrorPage';
 import React, { Component } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
 
 class App extends Component {
   render() {
@@ -12,8 +12,8 @@ class App extends Component {
       <>
         <Header />
         <Routes>
-          <Route path="/" element={<CardsList />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
         <Footer />

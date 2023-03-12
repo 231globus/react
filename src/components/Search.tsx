@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { ChangeEvent, Component } from 'react';
 
 type SearchState = {
   input: string;
@@ -10,12 +10,21 @@ class Search extends Component<object, SearchState> {
     this.state = {
       input: '',
     };
+    this.updateInput = this.updateInput.bind(this);
   }
   componentDidMount() {
     const inputValue = localStorage.getItem('input');
     if (inputValue) {
       this.setState({ input: inputValue });
     }
+  }
+  componentWillUnmount() {
+    localStorage.input = this.state.input;
+  }
+  updateInput(event: ChangeEvent) {
+    const target = event.target as HTMLInputElement;
+    this.setState({ input: target.value });
+    console.log(this.state.input);
   }
   render() {
     return (
@@ -25,6 +34,7 @@ class Search extends Component<object, SearchState> {
           type="text"
           placeholder="Search card"
           defaultValue={this.state.input}
+          onChange={this.updateInput}
         />
       </>
     );

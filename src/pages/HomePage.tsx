@@ -2,7 +2,7 @@ import React from 'react';
 import Search from '../components/Search';
 import CardsList from '../components/CardsList';
 
-class CardsPage extends React.Component {
+class HomePage extends React.Component {
   render() {
     return (
       <>
@@ -13,4 +13,4 @@ class CardsPage extends React.Component {
   }
 }
 
-export default CardsPage;
+export default HomePage;
