@@ -1,9 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import AboutPage from './pages/about/AboutPage';
+import CardsPage from './pages/cards/CardsPage';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <CardsPage />,
+  },
+  {
+    path: '/about',
+    element: <AboutPage />,
+  },
+]);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
