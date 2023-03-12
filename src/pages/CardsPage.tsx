@@ -1,8 +1,8 @@
 import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import Cards from '../components/Cards';
 import Search from '../components/Search';
+import CardsList from '../components/CardsList';
 
 class CardsPage extends React.Component {
   render() {
@@ -10,7 +10,7 @@ class CardsPage extends React.Component {
       <>
         <Header />
         <Search />
-        <Cards />
+        <CardsList />
         <Footer />
       </>
     );

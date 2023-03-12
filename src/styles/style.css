@@ -1,6 +1,4 @@
 @import './normalize';
-@import './header';
-@import './footer';
 
 #root {
   width: 100%;
@@ -10,5 +8,42 @@
 }
 
 .content {
-  min-height: calc(100vh - 100px);
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  background-color: lightblue;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  background-color: lightblue;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid blue;
+  border-radius: 10px;
+  background-color: lightcoral;
+}
+
+.search {
+  margin: 20px auto 0;
+  width: 200px;
 }
