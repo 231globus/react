@@ -1,5 +1,6 @@
-import Header from '../../components/header/Header';
-import Footer from '../../components/footer/Footer';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import Cards from '../components/Cards';
 import React from 'react';
 
 class CardsPage extends React.Component {
@@ -7,7 +8,7 @@ class CardsPage extends React.Component {
     return (
       <>
         <Header />
-        <div className="cards">Cards</div>
+        <Cards />
         <Footer />
       </>
     );

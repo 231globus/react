@@ -1,5 +1,6 @@
-import Header from '../../components/header/Header';
-import Footer from '../../components/footer/Footer';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import About from '../components/About';
 import React from 'react';
 
 class AboutPage extends React.Component {
@@ -7,7 +8,7 @@ class AboutPage extends React.Component {
     return (
       <>
         <Header />
-        <h1>Привет! Меня зовут Слава</h1>
+        <About />
         <Footer />
       </>
     );

@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import CardsPage from './CardsPage';
+import CardsPage from '../pages/CardsPage';
 import React from 'react';
 
 test('Render component App', () => {
