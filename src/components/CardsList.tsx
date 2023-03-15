@@ -29,7 +29,7 @@ class CardsList extends React.Component<object, CardListState> {
   }
   render() {
     return (
-      <section className="content">
+      <section className="content" data-testid="content">
         {this.state.cards.map((value) => (
           <CardsItem
             key={value.id}

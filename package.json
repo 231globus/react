@@ -12,7 +12,8 @@
     "lint-fix": "eslint --fix **/*.ts",
     "format": "prettier -w .",
     "postinstall": "husky install",
-    "test": "jest --coverage"
+    "test": "jest",
+    "coverage": "jest --coverage"
   },
   "dependencies": {
     "@types/react-router-dom": "5.3.3",
