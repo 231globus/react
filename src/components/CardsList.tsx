@@ -37,7 +37,7 @@ class CardsList extends React.Component<object, CardListState> {
             description={value.description}
             price={value.price}
             raiting={value.rating}
-            images={value.images[0]}
+            images={value.thumbnail}
           />
         ))}
       </section>
