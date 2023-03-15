@@ -1,12 +1,44 @@
 import React from 'react';
 import CardsItem from './CardsItem';
+import { products } from '../assets/dummy.json';
 
-class CardsList extends React.Component {
+type Card = {
+  id: number;
+  title: string;
+  description: string;
+  price: number;
+  discountPercentage: number;
+  rating: number;
+  stock: number;
+  brand: string;
+  category: string;
+  thumbnail: string;
+  images: string[];
+};
+
+type CardListState = {
+  cards: Card[];
+};
+
+class CardsList extends React.Component<object, CardListState> {
+  constructor(props: object) {
+    super(props);
+    this.state = {
+      cards: products,
+    };
+  }
   render() {
     return (
       <section className="content">
-        {Array.from(Array(6)).map((value, index) => (
-          <CardsItem id={index} key={index} />
+        {this.state.cards.map((value) => (
+          <CardsItem
+            key={value.id}
+            title={value.title}
+            description={value.description}
+            price={value.price}
+            raiting={value.rating}
+            images={value.images[0]}
+          />
         ))}
       </section>
     );
