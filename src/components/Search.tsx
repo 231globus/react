@@ -24,7 +24,6 @@ class Search extends Component<object, SearchState> {
   updateInput(event: ChangeEvent) {
     const target = event.target as HTMLInputElement;
     this.setState({ input: target.value });
-    console.log(this.state.input);
   }
   render() {
     return (

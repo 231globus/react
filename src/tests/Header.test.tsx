@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { BrowserRouter, MemoryRouter } from 'react-router-dom';
-import Header from './Header';
+import Header from '../components/Header';
 import App from '../App';
 
 describe('header tests', () => {
