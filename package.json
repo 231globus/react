@@ -13,7 +13,7 @@
     "format": "prettier -w .",
     "postinstall": "husky install",
     "test": "jest",
-    "coverage": "jest --coverage"
+    "coverage": "jest --coverage "
   },
   "dependencies": {
     "@types/react-router-dom": "5.3.3",

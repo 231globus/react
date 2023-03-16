@@ -7,7 +7,7 @@ class AboutPage extends React.Component {
       <>
         <Header title={window.location.pathname.slice(1)} />
         <section className="content">
-          <div className="about">About page</div>
+          <div className="about">231globus@gmail.com</div>
         </section>
       </>
     );
