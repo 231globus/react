@@ -1,12 +1,13 @@
 import React from 'react';
 import Search from '../components/Search';
 import CardsList from '../components/CardsList';
+import Header from '../components/Header';
 
 class HomePage extends React.Component {
   render() {
     return (
       <>
-        <h1>Home page</h1>
+        <Header title={window.location.pathname.slice(1)} />
         <Search />
         <CardsList />
       </>
