@@ -12,7 +12,7 @@ class CardItem extends Component<CardProps, object> {
   render() {
     return (
       <>
-        <div className="card">
+        <div className="card" data-testid="card">
           <h3 className="card__title">{this.props.title}</h3>
           <img className="card__image" src={this.props.images} alt={this.props.title} />
           <div className="card__price">Price: {this.props.price}$</div>

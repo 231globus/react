@@ -12,9 +12,9 @@ const setup = () => {
 };
 
 describe('Search tests', () => {
-  test('input should be ', () => {
+  test('input should be work', () => {
     const { input } = setup();
-    fireEvent.change(input, { target: { value: '23' } });
-    expect(input.value).toBe('23');
+    fireEvent.change(input, { target: { value: 'random value' } });
+    expect(input.value).toBe('random value');
   });
 });
