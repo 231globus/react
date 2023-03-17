@@ -15,7 +15,7 @@ class CardItem extends Component<CardProps, object> {
         <div className="card" data-testid="card">
           <h3 className="card__title">{this.props.title}</h3>
           <img className="card__image" src={this.props.images} alt={this.props.title} />
-          <div className="card__price">Price: {this.props.price}$</div>
+          <h5 className="card__price">Price: {this.props.price}$</h5>
           <div className="card__raiting">Raiting: {this.props.raiting}</div>
           <div className="card__description">{this.props.description}</div>
         </div>
