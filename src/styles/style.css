@@ -61,6 +61,22 @@
   margin: 0;
 }
 
+.form {
+  margin: 20px auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  gap: 1rem;
+  border: 2px solid white;
+}
+
+.form__title {
+  font-weight: 700;
+  color: white;
+  padding: 0 10px;
+}
+
 .card {
   display: flex;
   flex-direction: column;
