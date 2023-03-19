@@ -120,6 +120,11 @@
   color: #ffdd00;
 }
 
+.about {
+  color: white;
+  height: 80vh;
+}
+
 @media (max-width: 985px) {
   .content {
     grid-template-columns: repeat(3, 1fr);

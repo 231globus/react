@@ -24,6 +24,6 @@ describe('header tests', () => {
         <App />
       </MemoryRouter>
     );
-    expect(screen.getByText(/404 Ops/i)).toBeInTheDocument();
+    expect(screen.getByText(/Ops 404/i)).toBeInTheDocument();
   });
 });
