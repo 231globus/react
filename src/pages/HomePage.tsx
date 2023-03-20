@@ -9,9 +9,13 @@ class HomePage extends React.Component {
     return (
       <>
         <Header title={window.location.pathname.slice(1)} />
-        <Form />
-        <Search />
-        <CardsList />
+        <main className="main">
+          <div className="sidebar">
+            <Search />
+            <Form />
+          </div>
+          <CardsList />
+        </main>
       </>
     );
   }

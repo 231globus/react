@@ -29,7 +29,7 @@ class Search extends Component<object, SearchState> {
     return (
       <>
         <input
-          className="search"
+          className="search form__input"
           type="text"
           placeholder="Search card"
           defaultValue={this.state.input}

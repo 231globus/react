@@ -14,14 +14,22 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: #4512ae;
+  background-color: #ffffff;
+}
+
+.main {
+  display: flex;
+}
+
+.sidebar {
+  padding: 20px;
 }
 
 .content {
   margin: 0 auto;
   max-width: 900px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   padding: 20px;
 }
@@ -63,18 +71,79 @@
 
 .form {
   margin: 20px auto;
-  padding: 10px;
+  padding: 1em;
   display: flex;
   flex-direction: column;
   max-width: 500px;
   gap: 1rem;
-  border: 2px solid white;
+  border: 2px solid #eee;
+  border-radius: 5px;
 }
 
 .form__title {
   font-weight: 700;
-  color: white;
+  color: rgb(0, 0, 0);
   padding: 0 10px;
+}
+
+.form__input {
+  padding: 0.5em;
+  border-radius: 10px;
+  border: 1px solid #eee;
+  transition: 0.2s border-color;
+}
+
+.form__input:hover {
+  border: 1px solid #aaa;
+}
+
+.form__file {
+  position: relative;
+  display: inline-block;
+}
+
+.form__file-btn {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  vertical-align: middle;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #ffdd00;
+  line-height: 22px;
+  height: 30px;
+  padding: 5px 20px;
+  box-sizing: border-box;
+  border: 1px solid #ffdd00;
+  margin: 0;
+  transition: background-color 0.2s;
+}
+
+.form__file-text {
+  padding: 0 10px;
+  line-height: 40px;
+  display: inline-block;
+}
+
+.form__file input[type='file'] {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  display: block;
+  width: 0;
+  height: 0;
+}
+
+/* Hover/active */
+.form__file:hover .form__file-btn {
+  border: 1px solid #aaa;
+}
+
+.form__submit {
+  background-color: #ffdd00;
+  cursor: pointer;
 }
 
 .card {
@@ -84,9 +153,9 @@
   align-items: center;
   min-width: 220px;
   height: 340px;
-  border: 2px solid gray;
+  border: 2px solid #eee;
   border-radius: 10px;
-  background-color: #ffdd00;
+  background-color: #eee;
 }
 
 .card__price {
@@ -115,11 +184,7 @@
 }
 
 .search {
-  margin: 20px auto 0;
-  width: 300px;
-  height: 25px;
-  padding: 0 10px;
-  border-radius: 5px;
+  width: 95%;
 }
 
 .error-page {
@@ -143,17 +208,11 @@
 
 @media (max-width: 985px) {
   .content {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 750px) {
-  .content {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 750px) {
   .content {
     grid-template-columns: repeat(1, 1fr);
   }
