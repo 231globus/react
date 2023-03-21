@@ -8,33 +8,22 @@ class Form extends Component<object, object> {
   radioNo: React.RefObject<HTMLInputElement> = React.createRef();
   inputFile: React.RefObject<HTMLInputElement> = React.createRef();
   inputAgree: React.RefObject<HTMLInputElement> = React.createRef();
+
   constructor(props: object) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.validation = this.validation.bind(this);
+  }
+  validation() {
+    let result = true;
+    if (!this.inputAgree.current?.checked) {
+      result = false;
+    }
+    return result;
   }
   handleSubmit(event: FormEvent) {
     event.preventDefault();
-    if (this.inputName.current) {
-      console.log(this.inputName.current.value);
-    }
-    if (this.inputDate.current) {
-      console.log(this.inputDate.current.value);
-    }
-    if (this.selectGender.current) {
-      console.log(this.selectGender.current.value);
-    }
-    if (this.radioYes.current) {
-      console.log(this.radioYes.current.checked);
-    }
-    if (this.radioNo.current) {
-      console.log(this.radioNo.current.checked);
-    }
-    if (this.inputFile.current) {
-      console.log(this.inputFile.current.files);
-    }
-    if (this.inputAgree.current) {
-      console.log(this.inputAgree.current.checked);
-    }
+    console.log(this.validation());
   }
   render() {
     return (
