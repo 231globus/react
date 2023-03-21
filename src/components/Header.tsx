@@ -20,6 +20,9 @@ class Header extends React.Component<HeaderProps, object> {
           <Link className="header__item" to="/">
             Home
           </Link>
+          <Link className="header__item" to="/form">
+            FormTask
+          </Link>
           <Link className="header__item" to="/about">
             About
           </Link>

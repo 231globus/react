@@ -17,19 +17,11 @@
   background-color: #ffffff;
 }
 
-.main {
-  display: flex;
-}
-
-.sidebar {
-  padding: 20px;
-}
-
 .content {
   margin: 0 auto;
   max-width: 900px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
   padding: 20px;
 }
@@ -136,7 +128,6 @@
   height: 0;
 }
 
-/* Hover/active */
 .form__file:hover .form__file-btn {
   border: 1px solid #aaa;
 }
@@ -184,7 +175,8 @@
 }
 
 .search {
-  width: 95%;
+  margin: 20px auto;
+  width: 450px;
 }
 
 .error-page {
@@ -208,11 +200,17 @@
 
 @media (max-width: 985px) {
   .content {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (max-width: 750px) {
+  .content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 450px) {
   .content {
     grid-template-columns: repeat(1, 1fr);
   }
