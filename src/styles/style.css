@@ -61,7 +61,7 @@
   margin: 0;
 }
 
-.form {
+.form__wrapper {
   margin: 20px auto;
   padding: 1em;
   display: flex;

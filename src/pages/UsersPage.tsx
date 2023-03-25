@@ -1,16 +1,16 @@
-import Form from '../components/Form';
 import React, { Component } from 'react';
 import Header from '../components/Header';
+import UserList from '../components/UserList';
 
-class FormPage extends Component {
+class UsersPage extends Component {
   render() {
     return (
       <>
         <Header title={window.location.pathname.slice(1)} />
-        <Form />
+        <UserList />
       </>
     );
   }
 }
 
-export default FormPage;
+export default UsersPage;
