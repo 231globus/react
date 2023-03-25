@@ -27,15 +27,22 @@ class Form extends Component<FormProps, object> {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.validation = this.validation.bind(this);
   }
-  validation() {
+  validation(refs: React.RefObject<HTMLInputElement>[]) {
     let result = true;
-    if (!this.inputAgree.current?.checked) {
-      result = false;
-    }
+    function removeError(input: React.RefObject<HTMLInputElement>) {}
+    function createError(input: React.RefObject<HTMLInputElement>, message: string) {}
+    refs.forEach((input) => {
+      if (input.current?.value === '') {
+        removeError(input);
+        createError(input, 'The field is empty');
+        result = false;
+      }
+    });
     return result;
   }
   handleSubmit(event: FormEvent) {
     event.preventDefault();
+    this.validation([this.inputName, this.inputDate]);
     this.props.updateUserList({
       id: 1,
       name: this.inputName.current?.value as string,
