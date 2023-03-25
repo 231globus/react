@@ -1,13 +1,5 @@
 import React, { Component } from 'react';
 
-type UserProps = {
-  name: string;
-  birth: string;
-  gender: string;
-  doesUserLikeCoffe: boolean;
-  avatar: string;
-};
-
 class UserItem extends Component<UserProps, object> {
   render() {
     return (

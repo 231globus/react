@@ -1,56 +1,34 @@
-import React, { Component, FormEvent } from 'react';
+import React, { Component } from 'react';
+import AgreeCheckbox from './AgreeCheckbox';
+import DateField from './DateField';
+import FileField from './FileField';
+import GenderSelect from './GenderSelect';
+import NameField from './NameField';
+import CoffeeRadio from './CoffeeRadio';
 import { validation } from '../../utils/validation';
-
-type User = {
-  id: number;
-  name: string;
-  birth: string;
-  gender: string;
-  doesUserLikeCoffe: boolean;
-  avatar: string;
-};
-
-type FormProps = {
-  updateUserList: (user: User) => void;
-};
 
 class Form extends Component<FormProps, object> {
   form: React.RefObject<HTMLFormElement> = React.createRef();
-  nameField: React.RefObject<HTMLInputElement> = React.createRef();
   inputName: React.RefObject<HTMLInputElement> = React.createRef();
   inputDate: React.RefObject<HTMLInputElement> = React.createRef();
   selectGender: React.RefObject<HTMLSelectElement> = React.createRef();
-  radioYes: React.RefObject<HTMLInputElement> = React.createRef();
-  radioNo: React.RefObject<HTMLInputElement> = React.createRef();
+  radioCoffee: React.RefObject<HTMLInputElement> = React.createRef();
   inputFile: React.RefObject<HTMLInputElement> = React.createRef();
   inputAgree: React.RefObject<HTMLInputElement> = React.createRef();
   constructor(props: FormProps) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  // validation(refs: React.RefObject<HTMLInputElement>[]) {
-  //   let result = true;
-  //   function removeError(input: React.RefObject<HTMLInputElement>) {}
-  //   function createError(input: React.RefObject<HTMLInputElement>, message: string) {}
-  //   refs.forEach((input) => {
-  //     if (input.current?.value === '') {
-  //       removeError(input);
-  //       createError(input, 'The field is empty');
-  //       result = false;
-  //     }
-  //   });
-  //   return result;
-  // }
-  handleSubmit(event: FormEvent) {
+  handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    validation([this.inputName, this.inputDate]);
+    validation([this.inputName]);
     this.props.updateUserList({
       id: 1,
       name: this.inputName.current?.value as string,
       birth: this.inputDate.current?.value as string,
       gender: this.selectGender.current?.value as string,
-      doesUserLikeCoffe: this.radioYes.current?.checked as boolean,
-      avatar: this.inputName.current?.value as string,
+      doesUserLikeCoffe: this.radioCoffee.current?.checked as boolean,
+      avatar: this.inputFile.current?.value as string,
     });
     this.form.current?.reset();
   }
@@ -60,45 +38,12 @@ class Form extends Component<FormProps, object> {
         <form className="form" ref={this.form} onSubmit={this.handleSubmit}>
           <fieldset className="form__wrapper">
             <legend className="form__title">Create card</legend>
-            <input
-              className="form__name form__input"
-              type="text"
-              placeholder="Enter your name"
-              ref={this.inputName}
-            />
-            <input
-              className="form__date form__input"
-              type="date"
-              placeholder="date"
-              ref={this.inputDate}
-            />
-            <select className="form__gender form__input" ref={this.selectGender}>
-              <option value="" defaultChecked>
-                Chose your gender
-              </option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-            </select>
-            <div>
-              <label>Do you like coffee? </label>
-              <label>
-                <input type="radio" name="test" value="yes" ref={this.radioYes} />
-                Yes
-              </label>
-              <label>
-                <input type="radio" name="test" defaultChecked value="no" ref={this.radioNo} />
-                No
-              </label>
-            </div>
-            <label className="form__file">
-              <input type="file" ref={this.inputFile} />
-              <span className="form__file-btn">Chose photo</span>
-              <span className="form__file-text">Max file size 2mb</span>
-            </label>
-            <label>
-              <input type="checkbox" value="agree" ref={this.inputAgree} /> I agree with to the
-              terms
-            </label>
+            <NameField inputName={this.inputName} />
+            <DateField inputDate={this.inputDate} />
+            <GenderSelect selectGender={this.selectGender} />
+            <CoffeeRadio radioCoffee={this.radioCoffee} />
+            <FileField inputFile={this.inputFile} />
+            <AgreeCheckbox inputAgree={this.inputAgree} />
             <input className="form__input form__submit" type="submit" value="Create" />
           </fieldset>
         </form>

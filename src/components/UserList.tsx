@@ -2,19 +2,6 @@ import React, { Component } from 'react';
 import Form from './Form/Form';
 import UserItem from './UserItem';
 
-type User = {
-  id: number;
-  name: string;
-  birth: string;
-  gender: string;
-  doesUserLikeCoffe: boolean;
-  avatar: string;
-};
-
-type UserListState = {
-  users: User[];
-};
-
 class UserList extends Component<object, UserListState> {
   constructor(props: object) {
     super(props);
