@@ -11,9 +11,6 @@ type NameFieldState = {
 class NameField extends Component<NameFieldProps, NameFieldState> {
   constructor(props: NameFieldProps | Readonly<NameFieldProps>) {
     super(props);
-    this.state = {
-      error: '',
-    };
   }
   render() {
     const { inputName } = this.props;
@@ -23,9 +20,11 @@ class NameField extends Component<NameFieldProps, NameFieldState> {
           className="form__name form__input"
           type="text"
           placeholder="Enter your name"
+          maxLength={16}
+          minLength={3}
           ref={inputName}
         />
-        <span className="form__error">{this.state.error}</span>
+        <span className="form__error"></span>
       </div>
     );
   }

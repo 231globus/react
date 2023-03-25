@@ -19,6 +19,7 @@ class GenderSelect extends Component<GenderSelectProps> {
           <option value="male">Male</option>
           <option value="female">Female</option>
         </select>
+        <span className="form__error"></span>
       </div>
     );
   }

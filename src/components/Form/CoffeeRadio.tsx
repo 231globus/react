@@ -11,8 +11,8 @@ class CoffeeRadio extends Component<CoffeeRadioProps> {
   render() {
     const { radioCoffee } = this.props;
     return (
-      <div>
-        <label>Does user like coffee? </label>
+      <div className="form__coffee form__input">
+        <label>coffee? </label>
         <label>
           <input type="radio" name="test" value="yes" ref={radioCoffee} />
           Yes
@@ -21,6 +21,7 @@ class CoffeeRadio extends Component<CoffeeRadioProps> {
           <input type="radio" name="test" defaultChecked value="no" />
           No
         </label>
+        <span className="form__error"></span>
       </div>
     );
   }

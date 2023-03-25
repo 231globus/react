@@ -14,7 +14,6 @@ class UserList extends Component<object, UserListState> {
     this.setState({ users: [...this.state.users, user] });
   }
   render() {
-    console.log(this.state);
     return (
       <div className="content">
         <Form updateUserList={this.updateUserList} />

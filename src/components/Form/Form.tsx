@@ -21,7 +21,7 @@ class Form extends Component<FormProps, object> {
   }
   handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    validation([this.inputName]);
+    // validation([this.inputName, this.inputDate, this.radioCoffee, this.inputFile, this.inputAgree]);
     this.props.updateUserList({
       id: 1,
       name: this.inputName.current?.value as string,

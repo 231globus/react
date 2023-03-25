@@ -62,14 +62,20 @@
 }
 
 .form__wrapper {
-  margin: 20px auto;
   padding: 1em;
   display: flex;
   flex-direction: column;
-  max-width: 500px;
-  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  min-width: 220px;
+  gap: 6px;
   border: 2px solid #eee;
   border-radius: 5px;
+}
+
+.form__error {
+  color: red;
+  font-size: 12px;
 }
 
 .form__title {
@@ -79,6 +85,7 @@
 }
 
 .form__input {
+  width: 200px;
   padding: 0.5em;
   border-radius: 10px;
   border: 1px solid #eee;
@@ -87,6 +94,11 @@
 
 .form__input:hover {
   border: 1px solid #aaa;
+}
+
+.form__coffee {
+  display: flex;
+  justify-content: space-around;
 }
 
 .form__file {
@@ -117,6 +129,7 @@
   padding: 0 10px;
   line-height: 40px;
   display: inline-block;
+  font-size: 12px;
 }
 
 .form__file input[type='file'] {

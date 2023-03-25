@@ -15,6 +15,7 @@ class AgreeCheckbox extends Component<AgreeCheckboxProps> {
         <label>
           <input type="checkbox" value="agree" ref={inputAgree} /> I agree with to the terms
         </label>
+        <span className="form__error"></span>
       </div>
     );
   }

@@ -13,6 +13,7 @@ class DateField extends Component<DateFieldProps> {
     return (
       <div>
         <input className="form__date form__input" type="date" ref={inputDate} />
+        <span className="form__error"></span>
       </div>
     );
   }
