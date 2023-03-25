@@ -1,4 +1,5 @@
 import React, { Component, FormEvent } from 'react';
+import { validation } from '../../utils/validation';
 
 type User = {
   id: number;
@@ -15,6 +16,7 @@ type FormProps = {
 
 class Form extends Component<FormProps, object> {
   form: React.RefObject<HTMLFormElement> = React.createRef();
+  nameField: React.RefObject<HTMLInputElement> = React.createRef();
   inputName: React.RefObject<HTMLInputElement> = React.createRef();
   inputDate: React.RefObject<HTMLInputElement> = React.createRef();
   selectGender: React.RefObject<HTMLSelectElement> = React.createRef();
@@ -25,24 +27,23 @@ class Form extends Component<FormProps, object> {
   constructor(props: FormProps) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.validation = this.validation.bind(this);
   }
-  validation(refs: React.RefObject<HTMLInputElement>[]) {
-    let result = true;
-    function removeError(input: React.RefObject<HTMLInputElement>) {}
-    function createError(input: React.RefObject<HTMLInputElement>, message: string) {}
-    refs.forEach((input) => {
-      if (input.current?.value === '') {
-        removeError(input);
-        createError(input, 'The field is empty');
-        result = false;
-      }
-    });
-    return result;
-  }
+  // validation(refs: React.RefObject<HTMLInputElement>[]) {
+  //   let result = true;
+  //   function removeError(input: React.RefObject<HTMLInputElement>) {}
+  //   function createError(input: React.RefObject<HTMLInputElement>, message: string) {}
+  //   refs.forEach((input) => {
+  //     if (input.current?.value === '') {
+  //       removeError(input);
+  //       createError(input, 'The field is empty');
+  //       result = false;
+  //     }
+  //   });
+  //   return result;
+  // }
   handleSubmit(event: FormEvent) {
     event.preventDefault();
-    this.validation([this.inputName, this.inputDate]);
+    validation([this.inputName, this.inputDate]);
     this.props.updateUserList({
       id: 1,
       name: this.inputName.current?.value as string,

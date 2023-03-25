@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Form from './Form';
+import Form from './Form/Form';
 import UserItem from './UserItem';
 
 type User = {
