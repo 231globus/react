@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 type CoffeeRadioProps = {
   radioCoffee: React.RefObject<HTMLInputElement>;
+  radioCoffeeNo: React.RefObject<HTMLInputElement>;
+  errorMessage: ErrorMessage;
 };
 
 class CoffeeRadio extends Component<CoffeeRadioProps> {
@@ -10,6 +12,8 @@ class CoffeeRadio extends Component<CoffeeRadioProps> {
   }
   render() {
     const { radioCoffee } = this.props;
+    const { radioCoffeeNo } = this.props;
+    const { coffee } = this.props.errorMessage;
     return (
       <div className="form__field">
         <div className="form__coffee form__input">
@@ -19,10 +23,10 @@ class CoffeeRadio extends Component<CoffeeRadioProps> {
             Yes
           </label>
           <label>
-            <input type="radio" name="test" defaultChecked value="no" />
+            <input type="radio" name="test" value="no" ref={radioCoffeeNo} />
             No
           </label>
-          <span className="form__error"></span>
+          <span className="form__error">{coffee}</span>
         </div>
       </div>
     );

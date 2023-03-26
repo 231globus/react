@@ -11,6 +11,7 @@ class NameField extends Component<NameFieldProps, object> {
   }
   render() {
     const { inputName } = this.props;
+    const { name } = this.props.errorMessage;
     return (
       <div className="form__field">
         <input
@@ -19,7 +20,7 @@ class NameField extends Component<NameFieldProps, object> {
           placeholder="Enter your name"
           ref={inputName}
         />
-        <span className="form__error">{this.props.errorMessage.name}</span>
+        <span className="form__error">{name}</span>
       </div>
     );
   }

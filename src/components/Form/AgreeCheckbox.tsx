@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 type AgreeCheckboxProps = {
   inputAgree: React.RefObject<HTMLInputElement>;
+  errorMessage: ErrorMessage;
 };
 
 class AgreeCheckbox extends Component<AgreeCheckboxProps> {
@@ -10,10 +11,11 @@ class AgreeCheckbox extends Component<AgreeCheckboxProps> {
   }
   render() {
     const { inputAgree } = this.props;
+    const { agree } = this.props.errorMessage;
     return (
       <div className="form__filed">
-        <input type="checkbox" value="agree" ref={inputAgree} /> I agree with to the terms
-        <span className="form__error"></span>
+        <input type="checkbox" value="agree" ref={inputAgree} /> Yes, i want to create a card?
+        <span className="form__error">{agree}</span>
       </div>
     );
   }

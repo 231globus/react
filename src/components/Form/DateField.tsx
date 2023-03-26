@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 type DateFieldProps = {
   inputDate: React.RefObject<HTMLInputElement>;
+  errorMessage: ErrorMessage;
 };
 
 class DateField extends Component<DateFieldProps> {
@@ -10,11 +11,12 @@ class DateField extends Component<DateFieldProps> {
   }
   render() {
     const { inputDate } = this.props;
+    const { date } = this.props.errorMessage;
     return (
       <div className="form__field">
         <label htmlFor="test">Your birthday :</label>
         <input className="form__date form__input" id="test" type="date" ref={inputDate} />
-        <span className="form__error"></span>
+        <span className="form__error">{date}</span>
       </div>
     );
   }

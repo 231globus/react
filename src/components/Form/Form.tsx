@@ -16,6 +16,7 @@ class Form extends Component<FormProps, FormState> {
   inputDate: React.RefObject<HTMLInputElement> = React.createRef();
   selectGender: React.RefObject<HTMLSelectElement> = React.createRef();
   radioCoffee: React.RefObject<HTMLInputElement> = React.createRef();
+  radioCoffeeNo: React.RefObject<HTMLInputElement> = React.createRef();
   inputFile: React.RefObject<HTMLInputElement> = React.createRef();
   inputAgree: React.RefObject<HTMLInputElement> = React.createRef();
   constructor(props: FormProps) {
@@ -31,28 +32,111 @@ class Form extends Component<FormProps, FormState> {
       },
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.updateState = this.updateState.bind(this);
   }
-  updateState(newMessage: ErrorMessage) {
-    this.setState({ errorMessage: newMessage });
+  validation() {
+    const removeError = () => {
+      this.setState({
+        errorMessage: {
+          name: '',
+          date: '',
+          gender: '',
+          coffee: '',
+          file: '',
+          agree: '',
+        },
+      });
+    };
+    let result = true;
+    removeError();
+    if ((this.inputName.current as HTMLInputElement).value.length < 3) {
+      this.setState({
+        errorMessage: {
+          ...this.state.errorMessage,
+          name: 'Field must not be less than 3 characters',
+        },
+      });
+      result = false;
+    }
+    if ((this.inputName.current as HTMLInputElement).value.length > 16) {
+      this.setState({
+        errorMessage: {
+          ...this.state.errorMessage,
+          name: 'Field must not be less than 16 characters',
+        },
+      });
+      result = false;
+    }
+    if (this.inputName.current?.value === '') {
+      this.setState((prevState) => ({
+        errorMessage: { ...prevState.errorMessage, name: 'Name field is empty' },
+      }));
+      result = false;
+    }
+    if (this.inputDate.current?.value === '') {
+      this.setState((prevState) => ({
+        errorMessage: { ...prevState.errorMessage, date: 'Date field is empty' },
+      }));
+      result = false;
+    }
+    if (this.selectGender.current?.value === '') {
+      this.setState((prevState) => ({
+        errorMessage: { ...prevState.errorMessage, gender: 'Please, select your gender' },
+      }));
+      result = false;
+    }
+    if (
+      this.radioCoffee.current?.checked === false &&
+      this.radioCoffeeNo.current?.checked === false
+    ) {
+      this.setState((prevState) => ({
+        errorMessage: { ...prevState.errorMessage, coffee: 'Do you want coffee?' },
+      }));
+      result = false;
+    }
+    if (this.inputFile.current?.value === '') {
+      this.setState((prevState) => ({
+        errorMessage: { ...prevState.errorMessage, file: 'Please, select file' },
+      }));
+      result = false;
+    }
+    if (this.inputAgree.current?.checked === false) {
+      this.setState((prevState) => ({
+        errorMessage: { ...prevState.errorMessage, agree: 'Please, confirm to create' },
+      }));
+      result = false;
+    }
+    return result;
   }
   handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    this.form.current?.reset();
+    if (this.validation()) {
+      this.props.updateUserList({
+        id: 1,
+        name: this.inputName.current?.value as string,
+        birth: this.inputDate.current?.value as string,
+        gender: this.selectGender.current?.value as string,
+        doesUserLikeCoffe: this.radioCoffee.current?.checked as boolean,
+        avatar: this.inputFile.current?.value as string,
+      });
+      this.form.current?.reset();
+    }
   }
   render() {
-    console.log(this.state.errorMessage.name);
     return (
       <>
         <form className="form" ref={this.form} onSubmit={this.handleSubmit}>
           <fieldset className="form__wrapper">
             <legend className="form__title">Create card</legend>
             <NameField errorMessage={this.state.errorMessage} inputName={this.inputName} />
-            <DateField inputDate={this.inputDate} />
-            <GenderSelect selectGender={this.selectGender} />
-            <CoffeeRadio radioCoffee={this.radioCoffee} />
-            <FileField inputFile={this.inputFile} />
-            <AgreeCheckbox inputAgree={this.inputAgree} />
+            <DateField errorMessage={this.state.errorMessage} inputDate={this.inputDate} />
+            <GenderSelect errorMessage={this.state.errorMessage} selectGender={this.selectGender} />
+            <CoffeeRadio
+              errorMessage={this.state.errorMessage}
+              radioCoffee={this.radioCoffee}
+              radioCoffeeNo={this.radioCoffeeNo}
+            />
+            <FileField errorMessage={this.state.errorMessage} inputFile={this.inputFile} />
+            <AgreeCheckbox errorMessage={this.state.errorMessage} inputAgree={this.inputAgree} />
             <input className="form__input form__submit" type="submit" value="Create" />
           </fieldset>
         </form>
