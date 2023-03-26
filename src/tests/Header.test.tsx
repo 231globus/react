@@ -10,6 +10,7 @@ describe('header tests', () => {
     const link = render(<Header title="some title" />, { wrapper: BrowserRouter });
     expect(link).toBeTruthy();
   });
+
   test('full routing is work', async () => {
     render(<App />, { wrapper: BrowserRouter });
     const user = userEvent.setup();
