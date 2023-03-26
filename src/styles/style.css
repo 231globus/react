@@ -73,6 +73,16 @@
   border-radius: 5px;
 }
 
+input[type='file' i] {
+  font-size: 12px;
+  width: 200px;
+}
+
+.form__field {
+  display: flex;
+  flex-direction: column;
+}
+
 .form__error {
   color: red;
   font-size: 12px;

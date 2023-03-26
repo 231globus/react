@@ -11,17 +11,19 @@ class CoffeeRadio extends Component<CoffeeRadioProps> {
   render() {
     const { radioCoffee } = this.props;
     return (
-      <div className="form__coffee form__input">
-        <label>coffee? </label>
-        <label>
-          <input type="radio" name="test" value="yes" ref={radioCoffee} />
-          Yes
-        </label>
-        <label>
-          <input type="radio" name="test" defaultChecked value="no" />
-          No
-        </label>
-        <span className="form__error"></span>
+      <div className="form__field">
+        <div className="form__coffee form__input">
+          <label>coffee? </label>
+          <label>
+            <input type="radio" name="test" value="yes" ref={radioCoffee} />
+            Yes
+          </label>
+          <label>
+            <input type="radio" name="test" defaultChecked value="no" />
+            No
+          </label>
+          <span className="form__error"></span>
+        </div>
       </div>
     );
   }

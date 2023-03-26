@@ -11,8 +11,9 @@ class DateField extends Component<DateFieldProps> {
   render() {
     const { inputDate } = this.props;
     return (
-      <div>
-        <input className="form__date form__input" type="date" ref={inputDate} />
+      <div className="form__field">
+        <label htmlFor="test">Your birthday :</label>
+        <input className="form__date form__input" id="test" type="date" ref={inputDate} />
         <span className="form__error"></span>
       </div>
     );

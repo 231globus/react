@@ -11,10 +11,8 @@ class AgreeCheckbox extends Component<AgreeCheckboxProps> {
   render() {
     const { inputAgree } = this.props;
     return (
-      <div>
-        <label>
-          <input type="checkbox" value="agree" ref={inputAgree} /> I agree with to the terms
-        </label>
+      <div className="form__filed">
+        <input type="checkbox" value="agree" ref={inputAgree} /> I agree with to the terms
         <span className="form__error"></span>
       </div>
     );

@@ -22,3 +22,12 @@ type FormProps = {
 type UserListState = {
   users: User[];
 };
+
+type ErrorMessage = {
+  name: string;
+  date: string;
+  gender: string;
+  coffee: string;
+  file: string;
+  agree: string;
+};

@@ -11,7 +11,7 @@ class GenderSelect extends Component<GenderSelectProps> {
   render() {
     const { selectGender } = this.props;
     return (
-      <div>
+      <div className="form__field">
         <select className="form__gender form__input" ref={selectGender}>
           <option value="" defaultChecked>
             Chose your gender
