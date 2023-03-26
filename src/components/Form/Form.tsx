@@ -55,22 +55,22 @@ class Form extends Component<FormProps, FormState> {
     removeError();
     // Поле имя не может быть меньше 3 символов
     if ((this.inputName.current as HTMLInputElement).value.length < 3) {
-      this.setState({
+      this.setState((prevState) => ({
         errorMessage: {
-          ...this.state.errorMessage,
-          name: 'Field must not be less than 3 characters',
+          ...prevState.errorMessage,
+          name: 'Field must not be more than 3 characters',
         },
-      });
+      }));
       result = false;
     }
     // Поле имя не может быть больше 16 символов
     if ((this.inputName.current as HTMLInputElement).value.length > 16) {
-      this.setState({
+      this.setState((prevState) => ({
         errorMessage: {
-          ...this.state.errorMessage,
+          ...prevState.errorMessage,
           name: 'Field must not be less than 16 characters',
         },
-      });
+      }));
       result = false;
     }
     // Поле имя не может быть пустым

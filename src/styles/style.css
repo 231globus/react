@@ -217,6 +217,19 @@ input[type='file' i] {
   color: gray;
 }
 
+.user {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: #eee;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.user__item {
+  border-bottom: 1px solid black;
+}
+
 .search {
   margin: 20px auto;
   width: 450px;

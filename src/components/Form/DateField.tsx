@@ -14,7 +14,7 @@ class DateField extends Component<DateFieldProps> {
     const { date } = this.props.errorMessage;
     return (
       <div className="form__field">
-        <label htmlFor="test">Your birthday :</label>
+        <label htmlFor="test">Enter date :</label>
         <input className="form__date form__input" id="test" type="date" ref={inputDate} />
         <span className="form__error">{date}</span>
       </div>

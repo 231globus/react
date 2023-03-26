@@ -17,7 +17,7 @@ class NameField extends Component<NameFieldProps, object> {
         <input
           className="form__name form__input"
           type="text"
-          placeholder="Enter your name"
+          placeholder="Enter name"
           ref={inputName}
         />
         <span className="form__error">{name}</span>
