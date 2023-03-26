@@ -5,9 +5,11 @@ import FileField from './FileField';
 import GenderSelect from './GenderSelect';
 import NameField from './NameField';
 import CoffeeRadio from './CoffeeRadio';
+import PopUp from './PopUp';
 
 type FormState = {
   errorMessage: ErrorMessage;
+  confirmPopUp: boolean;
 };
 
 class Form extends Component<FormProps, FormState> {
@@ -19,6 +21,7 @@ class Form extends Component<FormProps, FormState> {
   radioCoffeeNo: React.RefObject<HTMLInputElement> = React.createRef();
   inputFile: React.RefObject<HTMLInputElement> = React.createRef();
   inputAgree: React.RefObject<HTMLInputElement> = React.createRef();
+
   constructor(props: FormProps) {
     super(props);
     this.state = {
@@ -30,9 +33,11 @@ class Form extends Component<FormProps, FormState> {
         file: '',
         agree: '',
       },
+      confirmPopUp: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+  // Валидация формы
   validation() {
     const removeError = () => {
       this.setState({
@@ -48,6 +53,7 @@ class Form extends Component<FormProps, FormState> {
     };
     let result = true;
     removeError();
+    // Поле имя не может быть меньше 3 символов
     if ((this.inputName.current as HTMLInputElement).value.length < 3) {
       this.setState({
         errorMessage: {
@@ -57,6 +63,7 @@ class Form extends Component<FormProps, FormState> {
       });
       result = false;
     }
+    // Поле имя не может быть больше 16 символов
     if ((this.inputName.current as HTMLInputElement).value.length > 16) {
       this.setState({
         errorMessage: {
@@ -66,24 +73,28 @@ class Form extends Component<FormProps, FormState> {
       });
       result = false;
     }
+    // Поле имя не может быть пустым
     if (this.inputName.current?.value === '') {
       this.setState((prevState) => ({
         errorMessage: { ...prevState.errorMessage, name: 'Name field is empty' },
       }));
       result = false;
     }
+    // Дата должна быть выбрана
     if (this.inputDate.current?.value === '') {
       this.setState((prevState) => ({
         errorMessage: { ...prevState.errorMessage, date: 'Date field is empty' },
       }));
       result = false;
     }
+    // Выбрать пол
     if (this.selectGender.current?.value === '') {
       this.setState((prevState) => ({
         errorMessage: { ...prevState.errorMessage, gender: 'Please, select your gender' },
       }));
       result = false;
     }
+    // Валидация радио
     if (
       this.radioCoffee.current?.checked === false &&
       this.radioCoffeeNo.current?.checked === false
@@ -93,12 +104,14 @@ class Form extends Component<FormProps, FormState> {
       }));
       result = false;
     }
+    // Нужно выбрать файл
     if (this.inputFile.current?.value === '') {
       this.setState((prevState) => ({
         errorMessage: { ...prevState.errorMessage, file: 'Please, select file' },
       }));
       result = false;
     }
+    // Согласен
     if (this.inputAgree.current?.checked === false) {
       this.setState((prevState) => ({
         errorMessage: { ...prevState.errorMessage, agree: 'Please, confirm to create' },
@@ -107,6 +120,7 @@ class Form extends Component<FormProps, FormState> {
     }
     return result;
   }
+
   handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (this.validation()) {
@@ -119,11 +133,17 @@ class Form extends Component<FormProps, FormState> {
         avatar: this.inputFile.current?.value as string,
       });
       this.form.current?.reset();
+      this.setState({ confirmPopUp: true });
+      setTimeout(() => {
+        this.setState({ confirmPopUp: false });
+      }, 2000);
     }
   }
+
   render() {
     return (
       <>
+        {this.state.confirmPopUp ? <PopUp /> : <></>}
         <form className="form" ref={this.form} onSubmit={this.handleSubmit}>
           <fieldset className="form__wrapper">
             <legend className="form__title">Create card</legend>
