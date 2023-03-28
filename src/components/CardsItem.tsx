@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 type CardProps = {
   title: string;
@@ -8,20 +8,19 @@ type CardProps = {
   images: string;
 };
 
-class CardItem extends Component<CardProps, object> {
-  render() {
-    return (
-      <>
-        <div className="card" data-testid="card">
-          <h3 className="card__title">{this.props.title}</h3>
-          <img className="card__image" src={this.props.images} alt={this.props.title} />
-          <h5 className="card__price">Price: {this.props.price}$</h5>
-          <div className="card__raiting">Raiting: {this.props.raiting}</div>
-          <div className="card__description">{this.props.description}</div>
-        </div>
-      </>
-    );
-  }
+function CardItem(props: CardProps) {
+  const { title, images, price, raiting, description } = props;
+  return (
+    <>
+      <div className="card" data-testid="card">
+        <h3 className="card__title">{title}</h3>
+        <img className="card__image" src={images} alt={title} />
+        <h5 className="card__price">Price: {price}$</h5>
+        <div className="card__raiting">Raiting: {raiting}</div>
+        <div className="card__description">{description}</div>
+      </div>
+    </>
+  );
 }
 
 export default CardItem;
