@@ -6,7 +6,7 @@ import Header from '../components/Header';
 function HomePage() {
   return (
     <>
-      <Header title={window.location.pathname.slice(1)} />
+      <Header />
       <Search />
       <CardsList />
     </>

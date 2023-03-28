@@ -5,7 +5,7 @@ import UserList from '../components/UserList';
 function UsersPage() {
   return (
     <>
-      <Header title={window.location.pathname.slice(1)} />
+      <Header />
       <UserList />
     </>
   );

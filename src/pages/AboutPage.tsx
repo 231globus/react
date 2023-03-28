@@ -4,7 +4,7 @@ import React from 'react';
 function AboutPage() {
   return (
     <>
-      <Header title={window.location.pathname.slice(1)} />
+      <Header />
       <section className="content">
         <div className="about">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab ipsa odio perferendis repellat
