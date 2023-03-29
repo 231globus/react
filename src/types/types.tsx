@@ -29,10 +29,6 @@ type UserProps = {
   avatar: string;
 };
 
-type FormProps = {
-  updateUserList: (user: User) => void;
-};
-
 type UserListState = {
   users: User[];
 };
@@ -45,3 +41,7 @@ type ErrorMessage = {
   file: string;
   agree: string;
 };
+
+interface IForm {
+  name: string;
+}
