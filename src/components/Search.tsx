@@ -1,43 +1,34 @@
-import React, { ChangeEvent, Component } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 
 type SearchState = {
-  input: string;
+  value: string;
 };
 
-class Search extends Component<object, SearchState> {
-  constructor(props: object) {
-    super(props);
-    this.state = {
-      input: '',
-    };
-    this.updateInput = this.updateInput.bind(this);
-  }
-  componentDidMount() {
-    const inputValue = localStorage.getItem('input');
-    if (inputValue) {
-      this.setState({ input: inputValue });
-    }
-  }
-  componentWillUnmount() {
-    localStorage.input = this.state.input;
-  }
-  updateInput(event: ChangeEvent) {
+function Search() {
+  const [input, setInput] = useState<SearchState>({ value: '' });
+  const handleChange = (event: ChangeEvent) => {
     const target = event.target as HTMLInputElement;
-    this.setState({ input: target.value });
-  }
-  render() {
-    return (
-      <>
-        <input
-          className="search form__input"
-          type="text"
-          placeholder="Search card"
-          defaultValue={this.state.input}
-          onChange={this.updateInput}
-        />
-      </>
-    );
-  }
+    setInput({ value: target.value });
+  };
+
+  useEffect(() => {
+    setInput({ value: localStorage.getItem('input') as string });
+    return () => {
+      localStorage.input = input.value;
+    };
+  }, [input.value]);
+
+  return (
+    <>
+      <input
+        className="search form__input"
+        type="text"
+        placeholder="Search card"
+        value={input.value}
+        onChange={handleChange}
+      />
+    </>
+  );
 }
 
 export default Search;

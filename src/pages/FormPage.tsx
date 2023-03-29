@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../components/Header';
 import UserList from '../components/UserList';
 
-function UsersPage() {
+function FormPage() {
   return (
     <>
       <Header />
@@ -11,4 +11,4 @@ function UsersPage() {
   );
 }
 
-export default UsersPage;
+export default FormPage;

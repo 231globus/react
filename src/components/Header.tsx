@@ -12,8 +12,8 @@ function Header() {
         <Link className="header__item" to="/">
           Home
         </Link>
-        <Link className="header__item" to="/users">
-          Users (FormTask)
+        <Link className="header__item" to="/form">
+          Form
         </Link>
         <Link className="header__item" to="/about">
           About
