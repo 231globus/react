@@ -62,6 +62,7 @@
 }
 
 .pop-up {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,6 +75,8 @@
 }
 
 .pop-up__message {
+  position: absolute;
+  z-index: 99;
   text-align: center;
   width: 70%;
   height: 200px;
@@ -218,6 +221,7 @@ input[type='file' i] {
 }
 
 .user {
+  max-width: 200px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -228,6 +232,17 @@ input[type='file' i] {
 
 .user__item {
   border-bottom: 1px solid black;
+}
+
+.user__file {
+  position: relative;
+  width: 200px;
+  overflow: hidden;
+}
+
+.user__img {
+  width: 100%;
+  height: auto;
 }
 
 .search {

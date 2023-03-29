@@ -132,7 +132,9 @@ class Form extends Component<FormProps, FormState> {
         birth: this.inputDate.current?.value as string,
         gender: this.selectGender.current?.value as string,
         doesUserLikeCoffe: this.radioCoffee.current?.checked as boolean,
-        avatar: this.inputFile.current?.value as string,
+        avatar: this.inputFile.current?.files?.length
+          ? URL.createObjectURL(this.inputFile.current?.files['0'])
+          : '',
       });
       this.form.current?.reset();
       this.setState({ confirmPopUp: true });

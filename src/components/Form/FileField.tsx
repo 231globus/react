@@ -22,7 +22,7 @@ class FileField extends Component<FileFieldProps, FileFieldState> {
     const { file } = this.props.errorMessage;
     return (
       <div className="form__filed form__input">
-        <input type="file" ref={inputFile} />
+        <input type="file" accept="image/png, image/gif, image/jpeg" ref={inputFile} />
         <span className="form__error">{file}</span>
       </div>
     );
