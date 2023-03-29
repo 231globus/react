@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { nanoid } from 'nanoid';
 import AgreeCheckbox from './AgreeCheckbox';
 import DateField from './DateField';
 import FileField from './FileField';
@@ -124,8 +125,9 @@ class Form extends Component<FormProps, FormState> {
   handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (this.validation()) {
+      const id = nanoid();
       this.props.updateUserList({
-        id: 1,
+        id: id,
         name: this.inputName.current?.value as string,
         birth: this.inputDate.current?.value as string,
         gender: this.selectGender.current?.value as string,
