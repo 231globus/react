@@ -44,4 +44,9 @@ type ErrorMessage = {
 
 interface IForm {
   name: string;
+  date: string;
+  gender: string;
+  coffee: boolean;
+  file: string;
+  agree: boolean;
 }

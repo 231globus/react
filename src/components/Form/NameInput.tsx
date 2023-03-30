@@ -14,6 +14,7 @@ const NameInput = (props: NameInputProps) => {
     <>
       <label>{label}</label>
       <input
+        className="form__input"
         type="text"
         {...register('name', { required, pattern: /^[A-Za-z]+$/i, minLength: 5, maxLength: 16 })}
       />
