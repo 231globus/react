@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import Form from './Form/Form';
+import Form from './Form';
 import UserItem from './UserItem';
 import { nanoid } from 'nanoid';
+import { User } from 'types/types';
 
 function UserList() {
-  const [users, updateUsers] = useState<IForm[]>([]);
-  const updateUserList = (user: IForm) => {
+  const [users, updateUsers] = useState<User[]>([]);
+  const updateUserList = (user: User) => {
     updateUsers([...users, user]);
   };
   return (
@@ -15,10 +16,10 @@ function UserList() {
         <UserItem
           key={nanoid()}
           name={value.name}
-          birth={value.date}
+          date={value.date}
           gender={value.gender}
-          doesUserLikeCoffe={value.coffee}
-          avatar={URL.createObjectURL(value.file['0'])}
+          coffee={value.coffee}
+          file={URL.createObjectURL(value.file['0'] as File)}
         />
       ))}
     </div>

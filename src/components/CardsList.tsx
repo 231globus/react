@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import CardsItem from './CardsItem';
 import { products } from '../assets/dummy.json';
+import { Card } from 'types/types';
 
 function CardsList() {
   const [cards] = useState<Card[]>(products);

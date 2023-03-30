@@ -1,14 +1,7 @@
 import React from 'react';
-import { FieldErrors, UseFormRegister } from 'react-hook-form';
+import { InputProps } from 'types/types';
 
-type CoffeeInputProps = {
-  label: string;
-  register: UseFormRegister<IForm>;
-  required: boolean;
-  errors: FieldErrors<IForm>;
-};
-
-const CoffeeInput = (props: CoffeeInputProps) => {
+const CoffeeInput = (props: InputProps) => {
   const { label, register, required, errors } = props;
   return (
     <>

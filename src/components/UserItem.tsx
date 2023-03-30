@@ -1,15 +1,8 @@
 import React from 'react';
+import { User } from 'types/types';
 
-type UserProps = {
-  name: string;
-  birth: string;
-  gender: string;
-  doesUserLikeCoffe: boolean;
-  avatar: string;
-};
-
-function UserItem(props: UserProps) {
-  const { name, birth, gender, doesUserLikeCoffe, avatar } = props;
+function UserItem(props: User) {
+  const { name, date, gender, coffee, file } = props;
   return (
     <>
       <div className="user">
@@ -19,11 +12,11 @@ function UserItem(props: UserProps) {
         </div>
         <div className="user__file user__item">
           <p>File:</p>
-          <img className="user__img" src={avatar} alt="image" />
+          <img className="user__img" src={file as string} alt="image" />
         </div>
         <div className="user__birth user__item">
           <p>Data:</p>
-          {birth}
+          {date}
         </div>
         <div className="user__gender user__item">
           <p>Gender:</p>
@@ -31,7 +24,7 @@ function UserItem(props: UserProps) {
         </div>
         <div className="user__coffee user__item">
           <p>Coffee:</p>
-          Somebody {doesUserLikeCoffe ? 'wants' : 'doesnt want'} coffee
+          Somebody {coffee ? 'wants' : 'doesnt want'} coffee
         </div>
       </div>
     </>

@@ -1,14 +1,15 @@
 import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import AgreeInput from './AgreeInput';
-import CoffeeInput from './CoffeeInput';
-import DateInput from './DateInput';
-import FileInput from './FileInput';
-import GenderSelect from './GenderSelect';
-import NameInput from './NameInput';
+import { User } from 'types/types';
+import AgreeInput from './Form/AgreeInput';
+import CoffeeInput from './Form/CoffeeInput';
+import DateInput from './Form/DateInput';
+import FileInput from './Form/FileInput';
+import GenderSelect from './Form/GenderSelect';
+import NameInput from './Form/NameInput';
 
 type FormProps = {
-  updateUserList: (object: IForm) => void;
+  updateUserList: (object: User) => void;
 };
 
 const Form = (props: FormProps) => {
@@ -16,7 +17,7 @@ const Form = (props: FormProps) => {
     handleSubmit,
     register,
     formState: { errors },
-  } = useForm<IForm>({
+  } = useForm<User>({
     defaultValues: {
       name: 'slava',
       date: '2023-03-04',
@@ -25,7 +26,7 @@ const Form = (props: FormProps) => {
       agree: true,
     },
   });
-  const onSubmit: SubmitHandler<IForm> = (data) => {
+  const onSubmit: SubmitHandler<User> = (data) => {
     console.log(data);
     props.updateUserList(data);
   };

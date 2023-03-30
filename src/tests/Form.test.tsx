@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
-import Form from '../components/Form/Form';
+import Form from '../components/Form';
 import NameField from '../components/Form/NameField';
 import DateField from '../components/Form/DateField';
 import FileField from '../components/Form/FileField';

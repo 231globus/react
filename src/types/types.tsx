@@ -1,13 +1,6 @@
-type User = {
-  id: number;
-  name: string;
-  birth: string;
-  gender: string;
-  doesUserLikeCoffe: boolean;
-  avatar: string;
-};
+import { UseFormRegister, FieldErrors } from 'react-hook-form';
 
-type Card = {
+export type Card = {
   id: number;
   title: string;
   description: string;
@@ -21,15 +14,18 @@ type Card = {
   images: string[];
 };
 
-type UserListState = {
-  users: IForm[];
-};
-
-interface IForm {
+export type User = {
   name: string;
   date: string;
   gender: string;
   coffee: boolean;
-  file: FileList;
-  agree: boolean;
-}
+  file: FileList | string;
+  agree?: boolean;
+};
+
+export type InputProps = {
+  label: string;
+  register: UseFormRegister<User>;
+  required: boolean;
+  errors: FieldErrors<User>;
+};
