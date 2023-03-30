@@ -1,12 +1,12 @@
 import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { User } from 'types/types';
-import AgreeInput from './Form/AgreeInput';
-import CoffeeInput from './Form/CoffeeInput';
-import DateInput from './Form/DateInput';
-import FileInput from './Form/FileInput';
-import GenderSelect from './Form/GenderSelect';
-import NameInput from './Form/NameInput';
+import AgreeInput from './FormFields/AgreeInput';
+import CoffeeInput from './FormFields/CoffeeInput';
+import DateInput from './FormFields/DateInput';
+import FileInput from './FormFields/FileInput';
+import GenderSelect from './FormFields/GenderSelect';
+import NameInput from './FormFields/NameInput';
 
 type FormProps = {
   updateUserList: (object: User) => void;

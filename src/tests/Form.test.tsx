@@ -2,9 +2,9 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import Form from '../components/Form';
-import NameField from '../components/Form/NameField';
-import DateField from '../components/Form/DateField';
-import FileField from '../components/Form/FileField';
+import NameField from '../components/FormFields/NameField';
+import DateField from '../components/FormFields/DateField';
+import FileField from '../components/FormFields/FileField';
 
 const updateUserList = () => {
   return;
