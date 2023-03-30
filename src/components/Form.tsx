@@ -23,7 +23,7 @@ const Form = (props: FormProps) => {
 
   return (
     <>
-      <form className="form__wrapper" onSubmit={handleSubmit(onSubmit)}>
+      <form className="form" onSubmit={handleSubmit(onSubmit)}>
         <NameInput label="Name:" register={register} errors={errors} required />
         <DateInput label="Date:" register={register} errors={errors} required />
         <GenderSelect label="Select gender:" register={register} errors={errors} required />

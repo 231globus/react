@@ -1,33 +1,22 @@
-import React, { ChangeEvent, useEffect, useState } from 'react';
-
-type SearchState = {
-  value: string;
-};
+import React, { useEffect, useRef } from 'react';
 
 function Search() {
-  const [input, setInput] = useState<SearchState>({ value: '' });
-
-  const handleChange = (event: ChangeEvent) => {
-    const target = event.target as HTMLInputElement;
-    setInput({ value: target.value });
-  };
+  const input = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    setInput({ value: localStorage.getItem('input') as string });
+    let localRef: HTMLInputElement | null = null;
+    if (input.current) localRef = input.current;
+    console.log('mount');
+    (localRef as HTMLInputElement).value = localStorage.getItem('input') || '';
     return () => {
-      localStorage.input = input.value;
+      console.log('unmount');
+      localStorage.setItem('input', (localRef as HTMLInputElement).value);
     };
-  }, [input.value]);
+  }, []);
 
   return (
     <>
-      <input
-        className="search form__input"
-        type="text"
-        placeholder="Search card"
-        value={input.value}
-        onChange={handleChange}
-      />
+      <input className="search form__input" type="text" placeholder="Search card" ref={input} />
     </>
   );
 }

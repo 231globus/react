@@ -7,24 +7,24 @@ function UserItem(props: User) {
   return (
     <>
       <div className="user">
-        <div className="user__title user__item">
-          <p>Name:</p>
+        <div className="user__name user__item">
+          <p className="user__title">Name:</p>
           {name}
         </div>
         <div className="user__file user__item">
-          <p>File:</p>
+          <p className="user__title">File:</p>
           <img className="user__img" src={file as string} alt="image" />
         </div>
         <div className="user__birth user__item">
-          <p>Data:</p>
+          <p className="user__title">Data:</p>
           {date}
         </div>
         <div className="user__gender user__item">
-          <p>Gender:</p>
+          <p className="user__title">Gender:</p>
           {gender}
         </div>
         <div className="user__coffee user__item">
-          <p>Coffee:</p>
+          <p className="user__title">Coffee:</p>
           Somebody {coffee ? 'wants' : 'doesnt want'} coffee
         </div>
       </div>

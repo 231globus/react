@@ -81,15 +81,16 @@
   color: white;
 }
 
-.form__wrapper {
+.form {
   padding: 1em;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   min-width: 220px;
-  gap: 6px;
-  border: 2px solid #eee;
+  min-height: 380px;
+  gap: 4px;
+  border: 2px solid rgb(0, 0, 0);
   border-radius: 5px;
 }
 
@@ -220,19 +221,23 @@ input[type='file' i] {
 .user {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  background-color: #eee;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  min-width: 220px;
+  min-height: 390px;
   border: 2px solid black;
   border-radius: 5px;
 }
 
-.user__item {
-  border-bottom: 1px solid black;
+.user__title {
+  margin: 0;
+  font-size: 14px;
+  color: darkgrey;
 }
 
 .user__file {
   position: relative;
-  width: 200px;
   overflow: hidden;
 }
 
