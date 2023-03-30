@@ -6,10 +6,11 @@ const NameInput = (props: InputProps) => {
 
   return (
     <>
-      <label>{label}</label>
+      <label htmlFor={label}>{label}</label>
       <input
         className="form__input"
         type="text"
+        id={label}
         {...register('name', { required, pattern: /^[A-Za-z]+$/i, minLength: 5, maxLength: 16 })}
       />
       {errors.name && errors.name.type === 'required' && (

@@ -6,8 +6,8 @@ const GenderSelect = (props: InputProps) => {
 
   return (
     <>
-      <label>{label}</label>
-      <select className="form__input" {...register('gender', { required })}>
+      <label htmlFor={label}>{label}</label>
+      <select className="form__input" id={label} {...register('gender', { required })}>
         <option value="" defaultChecked>
           Choose gender
         </option>

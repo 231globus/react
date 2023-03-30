@@ -118,6 +118,8 @@ input[type='file' i] {
 }
 
 .form__input {
+  display: flex;
+  justify-content: space-around;
   width: 200px;
   padding: 0.5em;
   border-radius: 10px;

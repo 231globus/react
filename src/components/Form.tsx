@@ -42,7 +42,7 @@ const Form = (props: FormProps) => {
         <GenderSelect label="Select gender:" register={register} errors={errors} required />
         <CoffeeInput label="Coffee?" register={register} errors={errors} required />
         <FileInput label="File:" register={register} errors={errors} required />
-        <AgreeInput label="Confirm to create:" register={register} errors={errors} required />
+        <AgreeInput label="Confirm to create  " register={register} errors={errors} required />
         <input type="submit" value="Submit" />
       </form>
     </>

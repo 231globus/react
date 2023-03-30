@@ -6,11 +6,12 @@ const FileInput = (props: InputProps) => {
 
   return (
     <>
-      <label>{label}</label>
+      <label htmlFor={label}>{label}</label>
       <input
         className="form__input"
         type="file"
         accept="image/*"
+        id={label}
         {...register('file', { required })}
       />
       {errors.file && errors.file.type === 'required' && (
