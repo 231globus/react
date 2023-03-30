@@ -17,13 +17,13 @@ const Form = (props: FormProps) => {
     register,
     formState: { errors },
   } = useForm<IForm>({
-    // defaultValues: {
-    //   name: 'slava',
-    //   date: '2023-03-04',
-    //   gender: 'male',
-    //   coffee: true,
-    //   agree: true,
-    // },
+    defaultValues: {
+      name: 'slava',
+      date: '2023-03-04',
+      gender: 'male',
+      coffee: true,
+      agree: true,
+    },
   });
   const onSubmit: SubmitHandler<IForm> = (data) => {
     console.log(data);

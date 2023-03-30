@@ -38,6 +38,6 @@ interface IForm {
   date: string;
   gender: string;
   coffee: boolean;
-  file?: FileList;
+  file: FileList;
   agree: boolean;
 }

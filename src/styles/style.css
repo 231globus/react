@@ -230,6 +230,17 @@ input[type='file' i] {
   border-bottom: 1px solid black;
 }
 
+.user__file {
+  position: relative;
+  width: 200px;
+  overflow: hidden;
+}
+
+.user__img {
+  width: 100%;
+  height: auto;
+}
+
 .search {
   margin: 20px auto;
   width: 450px;

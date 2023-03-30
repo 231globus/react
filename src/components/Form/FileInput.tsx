@@ -13,7 +13,12 @@ const FileInput = (props: FileInputProps) => {
   return (
     <>
       <label>{label}</label>
-      <input className="form__input" type="file" {...register('file', { required })} />
+      <input
+        className="form__input"
+        type="file"
+        accept="image/*"
+        {...register('file', { required })}
+      />
       {errors.file && errors.file.type === 'required' && (
         <span className="form__error">The field is empty</span>
       )}
