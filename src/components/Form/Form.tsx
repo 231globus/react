@@ -7,13 +7,19 @@ import FileInput from './FileInput';
 import GenderSelect from './GenderSelect';
 import NameInput from './NameInput';
 
-const Form = () => {
+type FormProps = {
+  updateUserList: (object: IForm) => void;
+};
+
+const Form = (props: FormProps) => {
   const {
     handleSubmit,
     register,
     formState: { errors },
   } = useForm<IForm>();
-  const onSubmit: SubmitHandler<IForm> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<IForm> = (data) => {
+    props.updateUserList(data);
+  };
   return (
     <>
       <form className="form__wrapper" onSubmit={handleSubmit(onSubmit)}>

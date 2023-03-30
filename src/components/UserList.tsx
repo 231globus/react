@@ -10,7 +10,7 @@ class UserList extends Component<object, UserListState> {
       users: [],
     };
   }
-  updateUserList(user: User) {
+  updateUserList(user: IForm) {
     this.setState({ users: [...this.state.users, user] });
   }
   render() {
@@ -21,10 +21,10 @@ class UserList extends Component<object, UserListState> {
           <UserItem
             key={value.id}
             name={value.name}
-            birth={value.birth}
+            birth={value.date}
             gender={value.gender}
-            doesUserLikeCoffe={value.doesUserLikeCoffe}
-            avatar={value.avatar}
+            doesUserLikeCoffe={value.coffee}
+            avatar={value.file}
           />
         ))}
       </div>

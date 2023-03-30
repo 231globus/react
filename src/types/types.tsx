@@ -30,7 +30,7 @@ type UserProps = {
 };
 
 type UserListState = {
-  users: User[];
+  users: IForm[];
 };
 
 type ErrorMessage = {
