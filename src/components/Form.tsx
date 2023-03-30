@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { User } from 'types/types';
 import AgreeInput from './FormFields/AgreeInput';
@@ -7,23 +7,36 @@ import DateInput from './FormFields/DateInput';
 import FileInput from './FormFields/FileInput';
 import GenderSelect from './FormFields/GenderSelect';
 import NameInput from './FormFields/NameInput';
+import PopUp from './PopUp';
 
 type FormProps = {
   updateUserList: (object: User) => void;
 };
 
 const Form = (props: FormProps) => {
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const [popUp, showPopUp] = useState<boolean>(false);
+
   const {
     handleSubmit,
     register,
     formState: { errors },
   } = useForm<User>();
 
-  const onSubmit: SubmitHandler<User> = (data) => props.updateUserList(data);
+  const onSubmit: SubmitHandler<User> = (data) => {
+    props.updateUserList(data);
+    showPopUp(true);
+    setTimeout(() => {
+      showPopUp(false);
+      formRef.current?.reset();
+    }, 2000);
+  };
 
   return (
     <>
-      <form className="form" onSubmit={handleSubmit(onSubmit)}>
+      {popUp ? <PopUp /> : <></>}
+      <form className="form" ref={formRef} onSubmit={handleSubmit(onSubmit)}>
         <NameInput label="Name:" register={register} errors={errors} required />
         <DateInput label="Date:" register={register} errors={errors} required />
         <GenderSelect label="Select gender:" register={register} errors={errors} required />

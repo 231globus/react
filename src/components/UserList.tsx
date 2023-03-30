@@ -21,7 +21,7 @@ function UserList() {
           date={value.date}
           gender={value.gender}
           coffee={value.coffee}
-          file={URL.createObjectURL(value.file['0'] as File)}
+          file={value.file[0] ? URL.createObjectURL(value.file['0'] as File) : ''}
         />
       ))}
     </div>

@@ -6,10 +6,8 @@ function Search() {
   useEffect(() => {
     let localRef: HTMLInputElement | null = null;
     if (input.current) localRef = input.current;
-    console.log('mount');
     (localRef as HTMLInputElement).value = localStorage.getItem('input') || '';
     return () => {
-      console.log('unmount');
       localStorage.setItem('input', (localRef as HTMLInputElement).value);
     };
   }, []);
