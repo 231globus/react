@@ -21,14 +21,6 @@ type Card = {
   images: string[];
 };
 
-type UserProps = {
-  name: string;
-  birth: string;
-  gender: string;
-  doesUserLikeCoffe: boolean;
-  avatar: string;
-};
-
 type UserListState = {
   users: IForm[];
 };

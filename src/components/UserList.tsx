@@ -1,36 +1,28 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import Form from './Form/Form';
 import UserItem from './UserItem';
 import { nanoid } from 'nanoid';
 
-class UserList extends Component<object, UserListState> {
-  constructor(props: object) {
-    super(props);
-    this.updateUserList = this.updateUserList.bind(this);
-    this.state = {
-      users: [],
-    };
-  }
-  updateUserList(user: IForm) {
-    this.setState({ users: [...this.state.users, user] });
-  }
-  render() {
-    return (
-      <div className="content">
-        <Form updateUserList={this.updateUserList} />
-        {this.state.users.map((value) => (
-          <UserItem
-            key={nanoid()}
-            name={value.name}
-            birth={value.date}
-            gender={value.gender}
-            doesUserLikeCoffe={value.coffee}
-            avatar={URL.createObjectURL(value.file['0'])}
-          />
-        ))}
-      </div>
-    );
-  }
+function UserList() {
+  const [users, updateUsers] = useState<IForm[]>([]);
+  const updateUserList = (user: IForm) => {
+    updateUsers([...users, user]);
+  };
+  return (
+    <div className="content">
+      <Form updateUserList={updateUserList} />
+      {users.map((value) => (
+        <UserItem
+          key={nanoid()}
+          name={value.name}
+          birth={value.date}
+          gender={value.gender}
+          doesUserLikeCoffe={value.coffee}
+          avatar={URL.createObjectURL(value.file['0'])}
+        />
+      ))}
+    </div>
+  );
 }
 
 export default UserList;
