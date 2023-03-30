@@ -16,10 +16,18 @@ const Form = (props: FormProps) => {
     handleSubmit,
     register,
     formState: { errors },
-  } = useForm<IForm>();
+  } = useForm<IForm>({
+    // defaultValues: {
+    //   name: 'slava',
+    //   date: '2023-03-04',
+    //   gender: 'male',
+    //   coffee: true,
+    //   agree: true,
+    // },
+  });
   const onSubmit: SubmitHandler<IForm> = (data) => {
     console.log(data);
-    // props.updateUserList(data);
+    props.updateUserList(data);
   };
   return (
     <>

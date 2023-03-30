@@ -14,7 +14,7 @@ const DateInput = (props: DateInputProps) => {
     <>
       <label>{label}</label>
       <input className="form__input" type="date" {...register('date', { required })} />
-      {errors.name && errors.name.type === 'required' && (
+      {errors.date && errors.date.type === 'required' && (
         <span className="form__error">Please select a date</span>
       )}
     </>

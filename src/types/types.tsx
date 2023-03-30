@@ -33,20 +33,11 @@ type UserListState = {
   users: IForm[];
 };
 
-type ErrorMessage = {
-  name: string;
-  date: string;
-  gender: string;
-  coffee: string;
-  file: string;
-  agree: string;
-};
-
 interface IForm {
   name: string;
   date: string;
   gender: string;
   coffee: boolean;
-  file: string;
+  file?: FileList;
   agree: boolean;
 }

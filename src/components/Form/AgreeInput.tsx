@@ -14,7 +14,7 @@ const AgreeInput = (props: AgreeInputProps) => {
     <>
       <label>{label}</label>
       <input className="form__input" type="checkbox" {...register('agree', { required })} />
-      {errors.name && errors.name.type === 'required' && (
+      {errors.agree && errors.agree.type === 'required' && (
         <span className="form__error">Confirm for create</span>
       )}
     </>

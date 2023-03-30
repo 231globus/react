@@ -25,7 +25,8 @@ class UserList extends Component<object, UserListState> {
             birth={value.date}
             gender={value.gender}
             doesUserLikeCoffe={value.coffee}
-            avatar={value.file}
+            avatar={'file'}
+            // avatar={URL.createObjectURL(value.file)}
           />
         ))}
       </div>

@@ -11,7 +11,7 @@ class UserItem extends Component<UserProps, object> {
           </div>
           <div className="user__file user__item">
             <p>File:</p>
-            {this.props.avatar}
+            <img src={this.props.avatar} alt="image" />
           </div>
           <div className="user__birth user__item">
             <p>Data:</p>

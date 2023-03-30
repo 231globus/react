@@ -21,7 +21,7 @@ const GenderSelect = (props: GenderSelectProps) => {
         <option value="female">Female</option>
         <option value="other">Other</option>
       </select>
-      {errors.name && errors.name.type === 'required' && (
+      {errors.gender && errors.gender.type === 'required' && (
         <span className="form__error">Please select gender</span>
       )}
     </>

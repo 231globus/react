@@ -14,7 +14,7 @@ const FileInput = (props: FileInputProps) => {
     <>
       <label>{label}</label>
       <input className="form__input" type="file" {...register('file', { required })} />
-      {errors.name && errors.name.type === 'required' && (
+      {errors.file && errors.file.type === 'required' && (
         <span className="form__error">The field is empty</span>
       )}
     </>

@@ -20,7 +20,7 @@ const CoffeeInput = (props: CoffeeInputProps) => {
         <input type="radio" value="no" {...register('coffee', { required })} />
       </div>
 
-      {errors.name && errors.name.type === 'required' && (
+      {errors.coffee && errors.coffee.type === 'required' && (
         <span className="form__error">Do you want coffee?</span>
       )}
     </>
