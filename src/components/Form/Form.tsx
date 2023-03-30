@@ -18,7 +18,8 @@ const Form = (props: FormProps) => {
     formState: { errors },
   } = useForm<IForm>();
   const onSubmit: SubmitHandler<IForm> = (data) => {
-    props.updateUserList(data);
+    console.log(data);
+    // props.updateUserList(data);
   };
   return (
     <>

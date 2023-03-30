@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Form from './Form/Form';
 import UserItem from './UserItem';
+import { nanoid } from 'nanoid';
 
 class UserList extends Component<object, UserListState> {
   constructor(props: object) {
@@ -19,7 +20,7 @@ class UserList extends Component<object, UserListState> {
         <Form updateUserList={this.updateUserList} />
         {this.state.users.map((value) => (
           <UserItem
-            key={value.id}
+            key={nanoid()}
             name={value.name}
             birth={value.date}
             gender={value.gender}
