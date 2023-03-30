@@ -14,7 +14,7 @@ const CoffeeInput = (props: InputProps) => {
         </div>
         <div className="coffee__no">
           <label>No</label>
-          <input type="radio" value="no" {...register('coffee', { required })} />
+          <input type="radio" value="" {...register('coffee', { required })} />
         </div>
       </div>
 

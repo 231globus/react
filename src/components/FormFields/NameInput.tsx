@@ -11,7 +11,12 @@ const NameInput = (props: InputProps) => {
         className="form__input"
         type="text"
         id={label}
-        {...register('name', { required, pattern: /^[A-Za-z]+$/i, minLength: 5, maxLength: 16 })}
+        {...register('name', {
+          required,
+          pattern: /^[а-яА-Я]|[A-Za-z]+$/i,
+          minLength: 5,
+          maxLength: 16,
+        })}
       />
       {errors.name && errors.name.type === 'required' && (
         <span className="form__error">The field is empty</span>
