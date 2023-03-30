@@ -17,19 +17,10 @@ const Form = (props: FormProps) => {
     handleSubmit,
     register,
     formState: { errors },
-  } = useForm<User>({
-    defaultValues: {
-      name: 'slava',
-      date: '2023-03-04',
-      gender: 'male',
-      coffee: true,
-      agree: true,
-    },
-  });
-  const onSubmit: SubmitHandler<User> = (data) => {
-    console.log(data);
-    props.updateUserList(data);
-  };
+  } = useForm<User>();
+
+  const onSubmit: SubmitHandler<User> = (data) => props.updateUserList(data);
+
   return (
     <>
       <form className="form__wrapper" onSubmit={handleSubmit(onSubmit)}>

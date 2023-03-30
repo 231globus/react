@@ -5,6 +5,7 @@ function Header() {
   const path = window.location.pathname.slice(1) + '';
   let title = 'home page';
   if (path) title = path + ' page';
+
   return (
     <header className="header">
       <div className="header__title">{title}</div>

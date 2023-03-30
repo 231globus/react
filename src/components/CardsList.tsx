@@ -5,6 +5,7 @@ import { Card } from 'types/types';
 
 function CardsList() {
   const [cards] = useState<Card[]>(products);
+
   return (
     <section className="content" data-testid="content">
       {cards.map((value) => (

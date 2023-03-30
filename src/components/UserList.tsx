@@ -6,9 +6,11 @@ import { User } from 'types/types';
 
 function UserList() {
   const [users, updateUsers] = useState<User[]>([]);
+
   const updateUserList = (user: User) => {
     updateUsers([...users, user]);
   };
+
   return (
     <div className="content">
       <Form updateUserList={updateUserList} />

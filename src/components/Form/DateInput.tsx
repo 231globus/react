@@ -3,6 +3,7 @@ import { InputProps } from 'types/types';
 
 const DateInput = (props: InputProps) => {
   const { label, register, required, errors } = props;
+
   return (
     <>
       <label>{label}</label>

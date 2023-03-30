@@ -6,6 +6,7 @@ type SearchState = {
 
 function Search() {
   const [input, setInput] = useState<SearchState>({ value: '' });
+
   const handleChange = (event: ChangeEvent) => {
     const target = event.target as HTMLInputElement;
     setInput({ value: target.value });

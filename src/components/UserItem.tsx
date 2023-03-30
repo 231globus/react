@@ -3,6 +3,7 @@ import { User } from 'types/types';
 
 function UserItem(props: User) {
   const { name, date, gender, coffee, file } = props;
+
   return (
     <>
       <div className="user">

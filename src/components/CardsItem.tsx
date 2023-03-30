@@ -10,6 +10,7 @@ type CardProps = {
 
 function CardItem(props: CardProps) {
   const { title, images, price, raiting, description } = props;
+
   return (
     <>
       <div className="card" data-testid="card">

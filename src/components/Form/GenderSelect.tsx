@@ -3,6 +3,7 @@ import { InputProps } from 'types/types';
 
 const GenderSelect = (props: InputProps) => {
   const { label, register, required, errors } = props;
+
   return (
     <>
       <label>{label}</label>
