@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Form from './Form';
 import UserItem from './UserItem';
-import { nanoid } from 'nanoid';
+import { uid } from 'react-uid';
 import { User } from 'types/types';
 
 function UserList() {
@@ -16,7 +16,7 @@ function UserList() {
       <Form updateUserList={updateUserList} />
       {users.map((value) => (
         <UserItem
-          key={nanoid()}
+          key={uid(value)}
           name={value.name}
           date={value.date}
           gender={value.gender}

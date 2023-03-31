@@ -1,7 +1,7 @@
 import React from 'react';
 import { screen, render } from '@testing-library/react';
 import CardItem from '../components/CardsItem';
-import { products } from '../assets/dummy';
+import { products } from '../assets/dummy.json';
 
 describe('Card tests', () => {
   test('should be render title, image, price, rait, description', () => {

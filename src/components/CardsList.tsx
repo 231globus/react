@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import CardsItem from './CardsItem';
-import { products } from '../assets/dummy';
+import { products } from '../assets/dummy.json';
 import { Card } from 'types/types';
 
 function CardsList() {
