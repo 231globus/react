@@ -4,7 +4,7 @@ import CardItem from '../components/CardsItem';
 import { products } from '../assets/dummy.json';
 
 describe('Card tests', () => {
-  test('should be render title, image, price, rait, description', () => {
+  test('render props', () => {
     render(
       <CardItem
         title={products[0].title}
