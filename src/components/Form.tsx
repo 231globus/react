@@ -50,7 +50,7 @@ const Form = (props: FormProps) => {
   return (
     <>
       {popUp ? <PopUp /> : <></>}
-      <form className="form" ref={formRef} onSubmit={handleSubmit(onSubmit)}>
+      <form className="form" role="form" ref={formRef} onSubmit={handleSubmit(onSubmit)}>
         <NameInput label="Name:" register={register} errors={errors} required />
         <DateInput label="Date:" register={register} errors={errors} required />
         <GenderSelect label="Select gender:" register={register} errors={errors} required />
