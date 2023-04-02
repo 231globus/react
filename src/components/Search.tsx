@@ -1,6 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 
-function Search() {
+type SearchProps = {
+  setFilter: (query: string) => void;
+};
+
+function Search({ setFilter }: SearchProps) {
   const input = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -12,10 +16,15 @@ function Search() {
     };
   }, []);
 
+  const handleSubmit = () => {
+    setFilter(`&name=${input.current?.value}`);
+  };
+
   return (
-    <>
-      <input className="search form__input" type="text" placeholder="Search card" ref={input} />
-    </>
+    <form onSubmit={handleSubmit}>
+      <input className="search form__input" type="text" placeholder="Input name" ref={input} />
+      <input type="submit" value="Search" />
+    </form>
   );
 }
 
