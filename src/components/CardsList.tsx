@@ -3,6 +3,7 @@ import CardsItem from './CardsItem';
 import axios from 'axios';
 import Search from './Search';
 import { RickAndMorty } from 'types/types';
+import Paginator from './Paginator';
 
 function CardsList() {
   const [character, setCharacter] = useState<RickAndMorty>();
@@ -19,26 +20,13 @@ function CardsList() {
     });
   }
 
-  function nextPage() {
-    setPage(page + 1);
-  }
-
-  function prevPage() {
-    setPage(page - 1);
-  }
-
   return (
     <>
       <Search setFilter={setFilter} />
-      <div>
-        <button onClick={prevPage}>prev</button>
-        <button onClick={nextPage}>next</button>
-      </div>
-      <section className="content" data-testid="content">
-        {character?.results.map((value) => (
-          <CardsItem key={value.id} name={value.name} species={value.species} image={value.image} />
-        ))}
-      </section>
+      <Paginator page={page} setPage={setPage} />
+      {character?.results.map((value) => (
+        <CardsItem key={value.id} name={value.name} species={value.species} image={value.image} />
+      ))}
     </>
   );
 }

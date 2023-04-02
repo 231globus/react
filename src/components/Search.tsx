@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { FormEvent, useEffect, useRef } from 'react';
 
 type SearchProps = {
   setFilter: (query: string) => void;
@@ -16,7 +16,8 @@ function Search({ setFilter }: SearchProps) {
     };
   }, []);
 
-  const handleSubmit = () => {
+  const handleSubmit = (event: FormEvent) => {
+    event.preventDefault();
     setFilter(`&name=${input.current?.value}`);
   };
 
