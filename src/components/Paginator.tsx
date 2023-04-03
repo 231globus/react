@@ -7,7 +7,7 @@ type PaginatorProps = {
 
 const Paginator = ({ page, setPage }: PaginatorProps) => {
   return (
-    <div>
+    <div className="paginator">
       <button onClick={() => setPage(page - 1)}>prev</button>
       <button onClick={() => setPage(page + 1)}>next</button>
     </div>

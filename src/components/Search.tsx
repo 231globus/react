@@ -22,9 +22,9 @@ function Search({ setFilter }: SearchProps) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input className="search form__input" type="text" placeholder="Input name" ref={input} />
-      <input type="submit" value="Search" />
+    <form className="search__bar" onSubmit={handleSubmit}>
+      <input className="search__input" type="text" placeholder="Input name" ref={input} />
+      <input className="search__submit" type="submit" value="Search" />
     </form>
   );
 }

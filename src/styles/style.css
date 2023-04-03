@@ -8,6 +8,7 @@
 }
 
 #root {
+  position: relative;
   font-family: 'Roboto', sans-serif;
   width: 100%;
   height: 100%;
@@ -15,15 +16,6 @@
   flex-direction: column;
   justify-content: center;
   background-color: #ffffff;
-}
-
-.content {
-  margin: 0 auto;
-  max-width: 900px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-  padding: 20px;
 }
 
 .header {
@@ -185,41 +177,76 @@ input[type='file' i] {
   cursor: pointer;
 }
 
-.card {
+.search__bar {
+  margin: 1rem auto;
+  width: 350px;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.search__input {
+  width: 100%;
+  border: 1px solid black;
+  padding: 0.5rem;
+}
+
+.search__submit {
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.paginator {
+  margin: 0 auto;
+}
+
+.content {
   display: flex;
   flex-direction: column;
+  gap: 1rem;
+  margin: 1rem;
+}
+
+.card {
+  display: flex;
   justify-content: flex-start;
   align-items: center;
-  min-width: 220px;
-  height: 340px;
-  border: 2px solid #eee;
-  border-radius: 10px;
-  background-color: #eee;
-}
-
-.card__price {
-  color: red;
-  font-weight: 700;
-}
-
-.card__raiting {
-  color: red;
-  font-size: 12px;
-  margin-bottom: 5px;
+  gap: 1rem;
+  border: 2px solid #ffdd00;
+  cursor: pointer;
+  border-radius: 50px;
+  background-color: rgb(255, 255, 255);
 }
 
 .card__image {
-  height: 30%;
+  max-width: 100px;
+  border-radius: 50%;
 }
 
-.card__description {
-  margin: 0 auto;
+.modal {
   display: flex;
-  align-items: center;
-  width: 80%;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
-  font-size: 14px;
-  color: gray;
+  background-color: rgba(0, 0, 0, 0.5);
+  transform: scale(0);
+}
+
+.modal_active {
+  transform: scale(1);
+}
+
+.modal__content {
+  position: fixed;
+  top: 10vh;
+  width: 80%;
+  height: 80%;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 15px;
 }
 
 .user {
@@ -255,6 +282,11 @@ input[type='file' i] {
   width: 450px;
 }
 
+.search__name {
+  display: flex;
+  margin: 0 auto;
+}
+
 .error-page {
   height: 100vh;
   display: flex;
@@ -272,22 +304,4 @@ input[type='file' i] {
 .about {
   color: rgb(0, 0, 0);
   height: 80vh;
-}
-
-@media (max-width: 985px) {
-  .content {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 750px) {
-  .content {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 450px) {
-  .content {
-    grid-template-columns: repeat(1, 1fr);
-  }
 }
