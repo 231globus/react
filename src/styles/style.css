@@ -286,6 +286,12 @@ input[type='file' i] {
   }
 }
 
+@media (max-width: 600px) {
+  .search {
+    width: 250px;
+  }
+}
+
 @media (max-width: 450px) {
   .content {
     grid-template-columns: repeat(1, 1fr);
