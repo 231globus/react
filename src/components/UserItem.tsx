@@ -2,7 +2,7 @@ import React from 'react';
 import { User } from 'types/types';
 
 function UserItem(props: User) {
-  const { name, date, gender, coffee, file } = props;
+  const { name, date, gender, coffee, filelink } = props;
 
   return (
     <>
@@ -13,7 +13,7 @@ function UserItem(props: User) {
         </div>
         <div className="user__file user__item">
           <p className="user__title">File:</p>
-          <img className="user__img" src={file as string} alt="image" />
+          <img className="user__img" src={filelink} alt="image" />
         </div>
         <div className="user__birth user__item">
           <p className="user__title">Data:</p>

@@ -21,25 +21,15 @@ const Form = (props: FormProps) => {
   const {
     handleSubmit,
     register,
-    setError,
     formState: { errors },
   } = useForm<User>();
 
-  const validateFile = (data: User) => {
-    const file = data.file[0];
-    if (
-      (file as File).type !== 'image/png' &&
-      (file as File).type !== 'image/jpeg' &&
-      (file as File).type !== 'image/svg' &&
-      (file as File).type !== 'image/jpg'
-    ) {
-      setError('file', { type: 'filetype', message: 'only image isvalid' });
-    }
-  };
-
   const onSubmit: SubmitHandler<User> = (data) => {
-    validateFile(data);
-    props.updateUserList(data);
+    const formData = {
+      ...data,
+      filelink: URL.createObjectURL(data.file[0]),
+    };
+    props.updateUserList(formData);
     showPopUp(true);
     setTimeout(() => {
       showPopUp(false);
