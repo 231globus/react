@@ -76,8 +76,10 @@
 
 .pop-up__message {
   text-align: center;
-  width: 70%;
-  height: 200px;
+  max-width: 300px;
+  min-height: 200px;
+  padding: 1rem;
+  margin: 1rem;
   background-color: white;
   border: 2px solid black;
   color: black;
