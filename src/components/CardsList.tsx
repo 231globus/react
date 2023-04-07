@@ -24,9 +24,11 @@ function CardsList() {
     <>
       <Search setFilter={setFilter} />
       <Paginator page={page} setPage={setPage} />
-      {character?.results.map((value) => (
-        <CardsItem key={value.id} name={value.name} species={value.species} image={value.image} />
-      ))}
+      <section className="cards" data-testid="content">
+        {character?.results.map((value) => (
+          <CardsItem key={value.id} name={value.name} species={value.species} image={value.image} />
+        ))}
+      </section>
     </>
   );
 }
