@@ -1,20 +1,20 @@
-import React from 'react';
-
+import React, { useState } from 'react';
+import { Character } from 'types/types';
+import Modal from './Modal';
 type CardProps = {
-  name: string;
-  species: string;
-  image: string;
+  character: Character;
 };
 
 function CardItem(props: CardProps) {
-  const { name, species, image } = props;
-
+  const [modal, setModal] = useState(false);
   return (
-    <div className="card" data-testid="card">
-      <img className="card__image" src={image} alt={name} />
-      <h3 className="card__title">{name}</h3>
-      <h5 className="card__price">{species}</h5>
-    </div>
+    <>
+      <div className="card" data-testid="card" onClick={() => setModal(true)}>
+        <img className="card__image" src={props.character.image} alt={props.character.name} />
+        <h1 className="card__title">{props.character.name}</h1>
+      </div>
+      {modal ? <Modal id={props.character.id} setModal={setModal} /> : <></>}
+    </>
   );
 }
 

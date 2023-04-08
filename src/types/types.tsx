@@ -29,7 +29,7 @@ export type RickAndMorty = {
     prev: string;
   };
   results: Character[];
-};
+} | null;
 
 export type User = {
   name: string;
