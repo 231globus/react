@@ -18,7 +18,7 @@ function Search({ setFilter }: SearchProps) {
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
-    setFilter(`&name=${input.current?.value}`);
+    setFilter(`?name=${input.current?.value}`);
   };
 
   return (
