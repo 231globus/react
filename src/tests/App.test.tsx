@@ -10,7 +10,7 @@ describe('App tests', () => {
   });
   test('render search', () => {
     render(<App />, { wrapper: BrowserRouter });
-    expect(screen.getByPlaceholderText(/Search card/i)).toBeInTheDocument();
+    expect(screen.getByPlaceholderText(/Input name/i)).toBeInTheDocument();
   });
   test('render cards', () => {
     render(<App />, { wrapper: BrowserRouter });

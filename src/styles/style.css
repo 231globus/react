@@ -270,7 +270,7 @@ input[type='file' i] {
 
 .search__bar {
   margin: 1rem auto;
-  width: 350px;
+  width: 500px;
   display: flex;
   gap: 1rem;
   justify-content: space-between;
@@ -381,4 +381,32 @@ input[type='file' i] {
 .about {
   color: rgb(0, 0, 0);
   height: 80vh;
+}
+
+@media (max-width: 1200px) {
+  .cards {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .search__bar {
+    width: 280px;
+  }
+}
+
+@media (max-width: 340px) {
+  .cards {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
