@@ -14,8 +14,9 @@ function CardsList() {
     setTimeout(() => {
       fetch(`https://rickandmortyapi.com/api/character/${filter}`)
         .then((res) => {
-          if (!res.ok) {
-            throw Error('New error');
+          setCharacter(null);
+          if (res.status !== 200) {
+            throw Error(`Nothing found for your request`);
           }
           return res.json();
         })

@@ -44,13 +44,17 @@ const Modal = (props: ModalProps) => {
       <div className="modal__content">
         <span className="modal__close-btn" onClick={() => props.setModal(false)}></span>
         {panding && <div className="preloader">Loading...</div>}
-        {err && <div className="error">{}</div>}
+        {err && <div className="error">{err}</div>}
         <h1 className="modal__name">{character?.name}</h1>
-        <h3>{character?.gender}</h3>
-        <img className="modal__img" src={character?.image} alt={character?.name} />
-        <p>{character?.species}</p>
-        <p>{character?.status}</p>
-        <p>{character?.origin.name}</p>
+        <div className="modal__container">
+          <img className="modal__img" src={character?.image} alt={character?.name} />
+          <div className="modal__sidebar">
+            <div>{!panding && <span>Gender: {character?.gender}</span>}</div>
+            <div>{!panding && <span>Species: {character?.species}</span>}</div>
+            <div>{!panding && <span>Status: {character?.status}</span>}</div>
+            <div>{!panding && <span>From planet: {character?.origin.name}</span>}</div>
+          </div>
+        </div>
       </div>
     </div>,
     document.body

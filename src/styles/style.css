@@ -35,11 +35,15 @@
   margin: 50px auto;
   padding: 1rem;
   max-width: 50%;
-  height: 80%;
+  margin-top: 150px;
   background-color: #3c3e44;
   color: white;
   border-radius: 5px;
   border: 1px solid rgb(95, 95, 95);
+}
+
+.modal__name {
+  margin: 0;
 }
 
 .modal__close-btn {
@@ -70,6 +74,18 @@
   max-width: 50%;
 }
 
+.modal__sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.modal__container {
+  display: flex;
+  gap: 1rem;
+}
+
 .preloader {
   margin: 0 auto;
   color: rgb(255, 208, 0);
@@ -79,6 +95,12 @@
   font-size: 30px;
   clip-path: inset(0 3ch 0 0);
   animation: dot 1s steps(4) infinite;
+}
+
+.error {
+  margin: 0 auto;
+  color: red;
+  font-weight: 900;
 }
 
 @keyframes dot {
@@ -277,9 +299,11 @@ input[type='file' i] {
 }
 
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   cursor: pointer;
   background-color: #3c3e44;
   color: white;
@@ -290,6 +314,16 @@ input[type='file' i] {
   max-width: 100%;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
+}
+
+.card__title {
+  background-color: #00000096;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  left: 0;
+  text-align: center;
 }
 
 .user {

@@ -11,7 +11,7 @@ function CardItem(props: CardProps) {
     <>
       <div className="card" data-testid="card" onClick={() => setModal(true)}>
         <img className="card__image" src={props.character.image} alt={props.character.name} />
-        <h1 className="card__title">{props.character.name}</h1>
+        <h2 className="card__title">{props.character.name}</h2>
       </div>
       {modal ? <Modal id={props.character.id} setModal={setModal} /> : <></>}
     </>
