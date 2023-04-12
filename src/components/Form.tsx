@@ -1,3 +1,4 @@
+import { useTypeSelector } from '../hooks/useTypeSelector';
 import React, { useRef, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { User } from 'types/types';
@@ -17,6 +18,9 @@ const Form = (props: FormProps) => {
   const formRef = useRef<HTMLFormElement>(null);
 
   const [popUp, showPopUp] = useState<boolean>(false);
+
+  const state = useTypeSelector((state) => state.popup.show);
+  console.log(state);
 
   const {
     handleSubmit,
