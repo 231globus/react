@@ -4,15 +4,15 @@ import React from 'react';
 import { BrowserRouter, MemoryRouter } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
 
-describe('App tests', () => {
-  test('render App component', () => {
+describe('App', () => {
+  it('render app component', () => {
     render(<App />, { wrapper: BrowserRouter });
   });
-  test('render search', () => {
+  it('render search', () => {
     render(<App />, { wrapper: BrowserRouter });
     expect(screen.getByPlaceholderText(/Input name/i)).toBeInTheDocument();
   });
-  test('render cards', () => {
+  it('render cards', () => {
     render(<App />, { wrapper: BrowserRouter });
     expect(screen.getByTestId('content')).toBeInTheDocument();
   });

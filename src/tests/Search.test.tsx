@@ -1,20 +1,18 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Search from '../components/Search';
+import userEvent from '@testing-library/user-event';
 
-const setup = () => {
-  const utils = render(<Search setFilter={() => {}} />);
-  const input = screen.getByPlaceholderText(/Input name/i) as HTMLInputElement;
-  return {
-    input,
-    ...utils,
-  };
-};
-
-describe('Search tests', () => {
-  test('input should be work', () => {
-    const { input } = setup();
-    fireEvent.change(input, { target: { value: 'random value' } });
-    expect(input.value).toBe('random value');
+describe('Search', () => {
+  it('input should be update field', async () => {
+    render(<Search setFilter={() => {}} />);
+    const input: HTMLInputElement = screen.getByPlaceholderText(/Input/i);
+    await userEvent.type(input, 'Rick');
+    expect(input).toHaveValue('Rick');
+  });
+  it('submit button should be call handleSubmit', async () => {
+    render(<Search setFilter={() => {}} />);
+    const submit: HTMLInputElement = screen.getByText(/Search/i);
+    await userEvent.click(submit);
   });
 });
