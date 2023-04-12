@@ -3,7 +3,7 @@ import CardsItem from './CardsItem';
 import Search from './Search';
 import { useDispatch } from 'react-redux';
 import { useTypeSelector } from '../hooks/useTypeSelector';
-import { ActionsEnum } from '../types/cards';
+import { ActionsEnum } from '../types/Cards';
 
 function CardsList() {
   const dispatch = useDispatch();
@@ -41,7 +41,7 @@ function CardsList() {
         {cards ? (
           cards.results.map((value) => <CardsItem key={value.id} character={value} />)
         ) : (
-          <>{')!*@$&*(#$^&*@#^$*(&@^#$*&#@^'}</>
+          <></>
         )}
       </section>
     </>

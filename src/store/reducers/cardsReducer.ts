@@ -1,4 +1,4 @@
-import { ActionsEnum, CardsActions, CardsState } from '../../types/cards';
+import { ActionsEnum, CardsActions, CardsState } from '../../types/Cards';
 
 const initialState: CardsState = {
   cards: null,
