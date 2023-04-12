@@ -1,16 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
+import { useDispatch } from 'react-redux';
+import { HIDE_POP_UP } from '../types/popup';
 import { Character } from 'types/types';
 
 type ModalProps = {
   id: number;
-  setModal: (open: boolean) => void;
 };
 
 const Modal = (props: ModalProps) => {
   const [character, setCharacter] = useState<Character>();
   const [panding, setPanding] = useState(true);
   const [err, setErr] = useState(null);
+
+  const dispatch = useDispatch();
+
+  const hideModal = () => {
+    dispatch({
+      type: HIDE_POP_UP,
+    });
+  };
 
   useEffect(() => {
     setPanding(true);
@@ -38,11 +47,11 @@ const Modal = (props: ModalProps) => {
     <div
       className="modal"
       onClick={(e) => {
-        e.currentTarget === e.target && props.setModal(false);
+        e.currentTarget === e.target && hideModal();
       }}
     >
       <div className="modal__content">
-        <span className="modal__close-btn" onClick={() => props.setModal(false)}></span>
+        <span className="modal__close-btn" onClick={() => hideModal()}></span>
         {panding && <div className="preloader">Loading...</div>}
         {err && <div className="error">{err}</div>}
         <h1 className="modal__name">{character?.name}</h1>

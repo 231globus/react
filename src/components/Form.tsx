@@ -17,40 +17,39 @@ const Form = () => {
   const formRef = useRef<HTMLFormElement>(null);
 
   const dispath = useDispatch();
+
   const { popup } = useTypeSelector((state) => state);
 
   const {
     handleSubmit,
     register,
-    setError,
     formState: { errors },
   } = useForm<User>();
 
-  const validateFile = (data: User) => {
-    const file = data.file[0];
-    if (
-      (file as File).type !== 'image/png' &&
-      (file as File).type !== 'image/jpeg' &&
-      (file as File).type !== 'image/svg' &&
-      (file as File).type !== 'image/jpg'
-    ) {
-      setError('file', { type: 'filetype', message: 'only image isvalid' });
-    }
-  };
-
-  const onSubmit: SubmitHandler<User> = (data) => {
-    validateFile(data);
+  const addUser = (data: User) => {
     dispath({
       type: ADD_USER,
       payload: data,
     });
+  };
+
+  const showPopUp = () => {
     dispath({
       type: SHOW_POP_UP,
     });
+  };
+
+  const hidePopUp = () => {
+    dispath({
+      type: HIDE_POP_UP,
+    });
+  };
+
+  const onSubmit: SubmitHandler<User> = (data) => {
+    addUser(data);
+    showPopUp();
     setTimeout(() => {
-      dispath({
-        type: HIDE_POP_UP,
-      });
+      hidePopUp();
       formRef.current?.reset();
     }, 2000);
   };
