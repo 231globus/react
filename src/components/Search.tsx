@@ -1,11 +1,10 @@
 import React, { FormEvent, useEffect, useRef } from 'react';
+import { useDispatch } from 'react-redux';
+import { ActionsEnum } from '../types/cards';
 
-type SearchProps = {
-  setFilter: (query: string) => void;
-};
-
-function Search({ setFilter }: SearchProps) {
+function Search() {
   const input = useRef<HTMLInputElement>(null);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     let localRef: HTMLInputElement | null = null;
@@ -18,7 +17,7 @@ function Search({ setFilter }: SearchProps) {
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
-    setFilter(`?name=${input.current?.value}`);
+    dispatch({ type: ActionsEnum.ADD_FILTER, payload: `?name=${input.current?.value}` });
   };
 
   return (
