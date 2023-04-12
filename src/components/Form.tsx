@@ -1,5 +1,5 @@
 import { useTypeSelector } from '../hooks/useTypeSelector';
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { User } from 'types/types';
 import AgreeInput from './FormFields/AgreeInput';
@@ -9,6 +9,8 @@ import FileInput from './FormFields/FileInput';
 import GenderSelect from './FormFields/GenderSelect';
 import NameInput from './FormFields/NameInput';
 import PopUp from './PopUp';
+import { useDispatch } from 'react-redux';
+import { HIDE_POP_UP, SHOW_POP_UP } from '../types/popup';
 
 type FormProps = {
   updateUserList: (object: User) => void;
@@ -17,10 +19,9 @@ type FormProps = {
 const Form = (props: FormProps) => {
   const formRef = useRef<HTMLFormElement>(null);
 
-  const [popUp, showPopUp] = useState<boolean>(false);
-
-  const state = useTypeSelector((state) => state.popup.show);
-  console.log(state);
+  const dispath = useDispatch();
+  const { popup } = useTypeSelector((state) => state);
+  console.log(popup);
 
   const {
     handleSubmit,
@@ -44,16 +45,20 @@ const Form = (props: FormProps) => {
   const onSubmit: SubmitHandler<User> = (data) => {
     validateFile(data);
     props.updateUserList(data);
-    showPopUp(true);
+    dispath({
+      type: SHOW_POP_UP,
+    });
     setTimeout(() => {
-      showPopUp(false);
+      dispath({
+        type: HIDE_POP_UP,
+      });
       formRef.current?.reset();
     }, 2000);
   };
 
   return (
     <>
-      {popUp ? <PopUp /> : <></>}
+      {popup.show ? <PopUp /> : <></>}
       <form className="form" role="form" ref={formRef} onSubmit={handleSubmit(onSubmit)}>
         <NameInput label="Name:" register={register} errors={errors} required />
         <DateInput label="Date:" register={register} errors={errors} required />
