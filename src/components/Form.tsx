@@ -11,17 +11,13 @@ import NameInput from './FormFields/NameInput';
 import PopUp from './PopUp';
 import { useDispatch } from 'react-redux';
 import { HIDE_POP_UP, SHOW_POP_UP } from '../types/popup';
+import { ADD_USER } from '../types/users';
 
-type FormProps = {
-  updateUserList: (object: User) => void;
-};
-
-const Form = (props: FormProps) => {
+const Form = () => {
   const formRef = useRef<HTMLFormElement>(null);
 
   const dispath = useDispatch();
   const { popup } = useTypeSelector((state) => state);
-  console.log(popup);
 
   const {
     handleSubmit,
@@ -44,7 +40,10 @@ const Form = (props: FormProps) => {
 
   const onSubmit: SubmitHandler<User> = (data) => {
     validateFile(data);
-    props.updateUserList(data);
+    dispath({
+      type: ADD_USER,
+      payload: data,
+    });
     dispath({
       type: SHOW_POP_UP,
     });

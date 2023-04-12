@@ -1,19 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Form from './Form';
 import UserItem from './UserItem';
 import { uid } from 'react-uid';
-import { User } from 'types/types';
+import { useTypeSelector } from '../hooks/useTypeSelector';
 
 function UserList() {
-  const [users, updateUsers] = useState<User[]>([]);
-
-  const updateUserList = (user: User) => {
-    updateUsers([...users, user]);
-  };
+  const { users } = useTypeSelector((state) => state.users);
 
   return (
     <div className="content">
-      <Form updateUserList={updateUserList} />
+      <Form />
       {users.map((value) => (
         <UserItem
           key={uid(value)}
