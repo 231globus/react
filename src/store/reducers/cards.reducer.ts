@@ -1,5 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { CardsState } from '../../types/Cards';
+import { RickAndMorty } from 'types/types';
+
+export type CardsState = {
+  cards: RickAndMorty | null;
+  loading: boolean;
+  filter: string;
+  error: string | null;
+};
 
 const initialState: CardsState = {
   cards: null,

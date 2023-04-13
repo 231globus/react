@@ -9,16 +9,17 @@ import FileInput from './FormFields/FileInput';
 import GenderSelect from './FormFields/GenderSelect';
 import NameInput from './FormFields/NameInput';
 import PopUp from './PopUp';
-import { useDispatch } from 'react-redux';
-import { HIDE_POP_UP, SHOW_POP_UP } from '../types/popup';
-import { ADD_USER } from '../types/users';
+import { useTypeDispatch } from '../hooks/useTypeDispatch';
+import { modalReducer } from '../store/reducers/modal.reducer';
+import { usersReducer } from '../store/reducers/users.reducer';
 
 const Form = () => {
   const formRef = useRef<HTMLFormElement>(null);
 
-  const dispath = useDispatch();
-
-  const { popup } = useTypeSelector((state) => state);
+  const dispatch = useTypeDispatch();
+  const { show } = useTypeSelector((state) => state.modalReducer);
+  const { showModal, hideModal } = modalReducer.actions;
+  const { addUser } = usersReducer.actions;
 
   const {
     handleSubmit,
@@ -26,37 +27,18 @@ const Form = () => {
     formState: { errors },
   } = useForm<User>();
 
-  const addUser = (data: User) => {
-    dispath({
-      type: ADD_USER,
-      payload: data,
-    });
-  };
-
-  const showPopUp = () => {
-    dispath({
-      type: SHOW_POP_UP,
-    });
-  };
-
-  const hidePopUp = () => {
-    dispath({
-      type: HIDE_POP_UP,
-    });
-  };
-
   const onSubmit: SubmitHandler<User> = (data) => {
-    addUser(data);
-    showPopUp();
+    dispatch(addUser(data));
+    dispatch(showModal());
     setTimeout(() => {
-      hidePopUp();
+      dispatch(hideModal());
       formRef.current?.reset();
     }, 2000);
   };
 
   return (
     <>
-      {popup.show ? <PopUp /> : <></>}
+      {show ? <PopUp /> : <></>}
       <form className="form" role="form" ref={formRef} onSubmit={handleSubmit(onSubmit)}>
         <NameInput label="Name:" register={register} errors={errors} required />
         <DateInput label="Date:" register={register} errors={errors} required />

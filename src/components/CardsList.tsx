@@ -3,7 +3,7 @@ import CardsItem from './CardsItem';
 import Search from './Search';
 import { useTypeSelector } from '../hooks/useTypeSelector';
 import { useTypeDispatch } from '../hooks/useTypeDispatch';
-import { cardsReducer } from '../store/reducers/cardsReducer';
+import { cardsReducer } from '../store/reducers/cards.reducer';
 
 function CardsList() {
   const dispatch = useTypeDispatch();

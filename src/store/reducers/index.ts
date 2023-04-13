@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import cardsReducer from './cardsReducer';
-import { popUpReducer } from './popUpReducer';
-import { usersReducer } from './usersReducer';
+import cardsReducer from './cards.reducer';
+import modalReducer from './modal.reducer';
+import usersReducer from './users.reducer';
 
 export const rootReducer = combineReducers({
   cardsReducer,
-  popup: popUpReducer,
-  users: usersReducer,
+  modalReducer,
+  usersReducer,
 });

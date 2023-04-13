@@ -5,7 +5,7 @@ import { uid } from 'react-uid';
 import { useTypeSelector } from '../hooks/useTypeSelector';
 
 function UserList() {
-  const { users } = useTypeSelector((state) => state.users);
+  const { users } = useTypeSelector((state) => state.usersReducer);
 
   return (
     <div className="content">

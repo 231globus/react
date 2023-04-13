@@ -1,6 +1,6 @@
 import { useTypeDispatch } from '../hooks/useTypeDispatch';
 import React, { FormEvent, useEffect, useRef } from 'react';
-import { cardsReducer } from '../store/reducers/cardsReducer';
+import { cardsReducer } from '../store/reducers/cards.reducer';
 
 function Search() {
   const input = useRef<HTMLInputElement>(null);
