@@ -1,10 +1,11 @@
+import { useTypeDispatch } from '../hooks/useTypeDispatch';
 import React, { FormEvent, useEffect, useRef } from 'react';
-import { useDispatch } from 'react-redux';
-import { ActionsEnum } from '../types/cards';
+import { cardsReducer } from '../store/reducers/cardsReducer';
 
 function Search() {
   const input = useRef<HTMLInputElement>(null);
-  const dispatch = useDispatch();
+  const dispatch = useTypeDispatch();
+  const { addFilter } = cardsReducer.actions;
 
   useEffect(() => {
     let localRef: HTMLInputElement | null = null;
@@ -17,7 +18,7 @@ function Search() {
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
-    dispatch({ type: ActionsEnum.ADD_FILTER, payload: `?name=${input.current?.value}` });
+    dispatch(addFilter(`?name=${input.current?.value}`));
   };
 
   return (

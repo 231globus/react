@@ -1,17 +1,16 @@
 import { useTypeSelector } from '../hooks/useTypeSelector';
 import React from 'react';
-import { useDispatch } from 'react-redux';
 import { SHOW_POP_UP } from '../types/popup';
 import { Character } from 'types/types';
 import Modal from './Modal';
+import { useTypeDispatch } from '../hooks/useTypeDispatch';
 
 type CardProps = {
   character: Character;
 };
 
 function CardItem(props: CardProps) {
-  const dispatch = useDispatch();
-
+  const dispatch = useTypeDispatch();
   const { popup } = useTypeSelector((state) => state);
 
   const showModal = () => {

@@ -1,4 +1,4 @@
-import { Character, RickAndMorty } from './types';
+import { RickAndMorty } from './types';
 
 export enum ActionsEnum {
   STOP_LOADING = 'STOP_LOADING',

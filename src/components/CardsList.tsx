@@ -1,36 +1,38 @@
 import React, { useEffect } from 'react';
 import CardsItem from './CardsItem';
 import Search from './Search';
-import { useDispatch } from 'react-redux';
 import { useTypeSelector } from '../hooks/useTypeSelector';
-import { ActionsEnum } from '../types/Cards';
+import { useTypeDispatch } from '../hooks/useTypeDispatch';
+import { cardsReducer } from '../store/reducers/cardsReducer';
 
 function CardsList() {
-  const dispatch = useDispatch();
-  const { cards, loading, filter, error } = useTypeSelector((state) => state.cards);
+  const dispatch = useTypeDispatch();
+  const { cards, loading, filter, error } = useTypeSelector((state) => state.cardsReducer);
+  const { startLoading, stopLoading, fetchData, clearData, addError, removeError } =
+    cardsReducer.actions;
 
   useEffect(() => {
-    dispatch({ type: ActionsEnum.START_LOADING });
+    dispatch(startLoading());
     setTimeout(() => {
       fetch(`https://rickandmortyapi.com/api/character/${filter}`)
         .then((res) => {
-          dispatch({ type: ActionsEnum.CLEAR_DATA });
+          dispatch(clearData());
           if (res.status !== 200) {
             throw Error(`Nothing found for your request`);
           }
           return res.json();
         })
         .then((data) => {
-          dispatch({ type: ActionsEnum.FETCH_DATA, payload: data });
-          dispatch({ type: ActionsEnum.STOP_LOADING });
-          dispatch({ type: ActionsEnum.REMOVE_ERROR });
+          dispatch(fetchData(data));
+          dispatch(stopLoading());
+          dispatch(removeError());
         })
         .catch((err) => {
-          dispatch({ type: ActionsEnum.STOP_LOADING });
-          dispatch({ type: ActionsEnum.ADD_ERROR, payload: err.message });
+          dispatch(stopLoading());
+          dispatch(addError(err.message));
         });
     }, 1000);
-  }, [dispatch, filter]);
+  }, [addError, clearData, dispatch, fetchData, filter, removeError, startLoading, stopLoading]);
 
   return (
     <>
