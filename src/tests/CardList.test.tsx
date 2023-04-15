@@ -1,12 +1,14 @@
 import React from 'react';
-import { render } from '@testing-library/react';
 import CardsList from '../components/CardsList';
-import fetch from 'node-fetch';
+import { renderWithProviders } from './utils/wrapper';
+import { setupStore } from '../store';
 
-global.fetch = fetch as never;
+const store = setupStore();
 
 describe('CardList tests', () => {
   test('render CardList', async () => {
-    render(<CardsList />);
+    renderWithProviders(<CardsList />, {
+      store,
+    });
   });
 });
