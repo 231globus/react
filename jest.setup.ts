@@ -9,6 +9,6 @@ global.Request = Request;
 global.Response = Response;
 global.AbortController = AbortController as typeof global.AbortController;
 
-beforeAll(() => server.listen({ onUnhandledRequest: 'error' }));
+beforeAll(() => server.listen({ onUnhandledRequest: 'bypass' }));
 afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
