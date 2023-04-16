@@ -5,6 +5,7 @@ import { rootReducer } from './reducers';
 export const setupStore = () => {
   return configureStore({
     reducer: rootReducer,
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(cardsListApi.middleware),
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({ serializableCheck: false }).concat(cardsListApi.middleware),
   });
 };

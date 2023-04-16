@@ -14,14 +14,16 @@ function CardsList() {
     <>
       <Search />
       {isLoading && <div className="preloader">Loading...</div>}
-      {error && <div className="error">API loading error</div>}
-      <section className="cards" data-testid="content">
-        {cards ? (
-          cards.results.map((value) => <CardsItem key={value.id} character={value} />)
-        ) : (
-          <></>
-        )}
-      </section>
+      {error && <div className="error">No results found for your request</div>}
+      {!error && (
+        <section className="cards" data-testid="content">
+          {cards ? (
+            cards.results.map((value) => <CardsItem key={value.id} character={value} />)
+          ) : (
+            <></>
+          )}
+        </section>
+      )}
       {show ? <Modal id={id} /> : <></>}
     </>
   );
