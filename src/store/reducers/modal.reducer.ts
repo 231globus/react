@@ -2,10 +2,12 @@ import { createSlice } from '@reduxjs/toolkit';
 
 export type modalState = {
   show: boolean;
+  id: number;
 };
 
 const initialState: modalState = {
   show: false,
+  id: 1,
 };
 
 export const modalReducer = createSlice({
@@ -17,6 +19,9 @@ export const modalReducer = createSlice({
     },
     hideModal(state) {
       state.show = false;
+    },
+    idModal(state, action) {
+      state.id = action.payload;
     },
   },
 });

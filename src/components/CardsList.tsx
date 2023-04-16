@@ -3,10 +3,12 @@ import CardsItem from './CardsItem';
 import Search from './Search';
 import { cardsListApi } from '../services/CardsListService';
 import { useTypeSelector } from '../hooks/useTypeSelector';
+import Modal from './Modal';
 
 function CardsList() {
   const { filter } = useTypeSelector((state) => state.cardsReducer);
   const { data: cards, error, isLoading } = cardsListApi.useFetchCardsQuery(filter);
+  const { show, id } = useTypeSelector((state) => state.modalReducer);
 
   return (
     <>
@@ -20,6 +22,7 @@ function CardsList() {
           <></>
         )}
       </section>
+      {show ? <Modal id={id} /> : <></>}
     </>
   );
 }
