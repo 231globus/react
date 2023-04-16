@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { RickAndMorty } from 'types/types';
+import { Character, RickAndMorty } from 'types/types';
 
 export const cardsListApi = createApi({
   reducerPath: 'cardApi',
@@ -11,6 +11,11 @@ export const cardsListApi = createApi({
         params: {
           name: filter,
         },
+      }),
+    }),
+    fetchId: build.query<Character, string>({
+      query: (filter = '') => ({
+        url: `/character/${filter}`,
       }),
     }),
   }),

@@ -17,6 +17,13 @@
   background-color: #272b33;
 }
 
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 1rem;
+}
+
 .modal {
   z-index: 999;
   position: fixed;
@@ -332,7 +339,7 @@ input[type='file' i] {
   justify-content: center;
   gap: 10px;
   padding: 10px;
-  min-width: 220px;
+  width: 230px;
   min-height: 390px;
   border: 2px solid black;
   border-radius: 5px;
@@ -351,7 +358,6 @@ input[type='file' i] {
 
 .user__img {
   width: 100%;
-  height: auto;
 }
 
 .search {
@@ -376,11 +382,6 @@ input[type='file' i] {
   font-size: 32px;
   font-weight: 900;
   color: #ffdd00;
-}
-
-.about {
-  color: rgb(0, 0, 0);
-  height: 80vh;
 }
 
 @media (max-width: 1200px) {

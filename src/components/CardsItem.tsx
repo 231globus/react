@@ -13,6 +13,7 @@ function CardItem(props: CardProps) {
   const dispatch = useTypeDispatch();
   const { show } = useTypeSelector((state) => state.modalReducer);
   const { showModal } = modalReducer.actions;
+
   return (
     <>
       <div className="card" data-testid="card" onClick={() => dispatch(showModal())}>

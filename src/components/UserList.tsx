@@ -10,15 +10,8 @@ function UserList() {
   return (
     <div className="content">
       <Form />
-      {users.map((value) => (
-        <UserItem
-          key={uid(value)}
-          name={value.name}
-          date={value.date}
-          gender={value.gender}
-          coffee={value.coffee}
-          file={value.file[0] ? URL.createObjectURL(value.file['0'] as File) : ''}
-        />
+      {users.map((user) => (
+        <UserItem key={uid(user)} user={user} />
       ))}
     </div>
   );
