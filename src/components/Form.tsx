@@ -28,7 +28,11 @@ const Form = () => {
   } = useForm<User>();
 
   const onSubmit: SubmitHandler<User> = (data) => {
-    dispatch(addUser(data));
+    const formData = {
+      ...data,
+      image: URL.createObjectURL(data.file['0']),
+    };
+    dispatch(addUser(formData));
     dispatch(showModal());
     setTimeout(() => {
       dispatch(hideModal());

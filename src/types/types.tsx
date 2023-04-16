@@ -36,8 +36,9 @@ export type User = {
   date: string;
   gender: string;
   coffee: boolean;
-  file: FileList | string;
+  file: FileList;
   agree?: boolean;
+  image: string;
 };
 
 export type InputProps = {

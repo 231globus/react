@@ -17,11 +17,7 @@ function UserItem(props: UserProps) {
         </div>
         <div className="user__file user__item">
           <p className="user__title">File:</p>
-          <img
-            className="user__img"
-            src={user.file[0] ? URL.createObjectURL(user.file['0'] as File) : ''}
-            alt="image"
-          />
+          <img className="user__img" src={user.image} alt="image" />
         </div>
         <div className="user__birth user__item">
           <p className="user__title">Data:</p>
