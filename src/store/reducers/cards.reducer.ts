@@ -1,5 +1,9 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { Character, RickAndMorty } from 'types/types';
+
+import * as toolkitRaw from '@reduxjs/toolkit';
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const { createSlice, createAsyncThunk } = ((toolkitRaw as any).default ??
+  toolkitRaw) as typeof toolkitRaw;
 
 export type CardsState = {
   cards: RickAndMorty | null;

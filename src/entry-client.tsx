@@ -8,7 +8,7 @@ import { setupStore } from './store';
 const store = setupStore();
 
 hydrateRoot(
-  document.getElementById('root') as HTMLElement,
+  document,
   <BrowserRouter>
     <Provider store={store}>
       <App />
