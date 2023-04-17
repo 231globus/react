@@ -1,18 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import { useDispatch } from 'react-redux';
 import { modalReducer } from '../store/reducers/modal.reducer';
-import { cardsListApi } from '../services/CardsListService';
+import { fetchId } from '../store/reducers/cards.reducer';
+import { useTypeDispatch } from '../hooks/useTypeDispatch';
+import { useTypeSelector } from '../hooks/useTypeSelector';
 
 type ModalProps = {
   id: number;
 };
 
 const Modal = (props: ModalProps) => {
-  const { data: card, isError, isLoading } = cardsListApi.useFetchIdQuery(`${props.id}`);
-
-  const dispatch = useDispatch();
+  const dispatch = useTypeDispatch();
   const { hideModal } = modalReducer.actions;
+  const { card, isLoading, isError } = useTypeSelector((state) => state.cardsReducer);
+  useEffect(() => {
+    dispatch(fetchId(props.id));
+  }, [dispatch, props.id]);
 
   return ReactDOM.createPortal(
     <div
