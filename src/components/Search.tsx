@@ -1,20 +1,19 @@
 import { useTypeDispatch } from '../hooks/useTypeDispatch';
 import React, { FormEvent, useEffect, useRef } from 'react';
 import { cardsReducer } from '../store/reducers/cards.reducer';
+import { useTypeSelector } from '../hooks/useTypeSelector';
 
 function Search() {
   const input = useRef<HTMLInputElement>(null);
   const dispatch = useTypeDispatch();
   const { addFilter } = cardsReducer.actions;
+  const { filter } = useTypeSelector((state) => state.cardsReducer);
 
   useEffect(() => {
     let localRef: HTMLInputElement | null = null;
     if (input.current) localRef = input.current;
-    (localRef as HTMLInputElement).value = localStorage.getItem('input') || '';
-    return () => {
-      localStorage.setItem('input', (localRef as HTMLInputElement).value);
-    };
-  }, []);
+    (localRef as HTMLInputElement).value = filter;
+  }, [filter]);
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
