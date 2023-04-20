@@ -8,7 +8,7 @@ import { setupStore } from './store';
 
 const store = setupStore();
 
-export default function render(
+export function render(
   url: string | Partial<Location>,
   opts: RenderToPipeableStreamOptions | undefined
 ) {
