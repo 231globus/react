@@ -9,7 +9,7 @@ import './styles/style.css';
 const store = setupStore();
 
 hydrateRoot(
-  document,
+  document.getElementById('root') as HTMLElement,
   <BrowserRouter>
     <Provider store={store}>
       <App />
