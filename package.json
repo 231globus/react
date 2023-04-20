@@ -8,7 +8,7 @@
     "build:client": "vite build --outDir ./dist/client",
     "build:server": "vite build --outDir ./dist/server --ssr ./src/entry-server.tsx",
     "build": "npm run build:client && npm run build:server",
-    "start": "node server.js",
+    "start": "ts-node --esm server.ts",
     "preview": "vite preview",
     "prepare": "husky install",
     "lint": "eslint **/*.ts",

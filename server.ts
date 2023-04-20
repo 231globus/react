@@ -2,6 +2,8 @@ import express from 'express';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+// eslint-disable-next-line
+// @ts-ignore
 import renderApp from './dist/server/entry-server.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -10,6 +12,7 @@ const html = fs.readFileSync(path.resolve(__dirname, './dist/client/index.html')
 const parts = html.split('<!--ssr-outlet-->');
 
 const app = express();
+
 app.use('/assets', express.static(path.resolve(__dirname, './dist/client/assets')));
 
 app.use((req, res) => {
@@ -25,7 +28,7 @@ app.use((req, res) => {
       res.write(parts[1]);
       res.end();
     },
-    onError(err) {
+    onError(err: Error) {
       console.error(err);
     },
   });
