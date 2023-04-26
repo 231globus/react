@@ -3,22 +3,26 @@ import { renderToPipeableStream, RenderToPipeableStreamOptions } from 'react-dom
 import { Provider } from 'react-redux';
 import { Location } from 'react-router-dom';
 import { StaticRouter } from 'react-router-dom/server';
+import { fetchCards } from './store/reducers/cards.reducer';
 import App from './App';
 import { setupStore } from './store';
 
-const store = setupStore();
-
-export function render(
+export async function render(
   url: string | Partial<Location>,
   opts: RenderToPipeableStreamOptions | undefined
 ) {
-  const stream = renderToPipeableStream(
-    <StaticRouter location={url}>
+  const store = setupStore();
+  await store.dispatch(fetchCards(''));
+  const stream = [
+    renderToPipeableStream(
       <Provider store={store}>
-        <App />
-      </Provider>
-    </StaticRouter>,
-    opts
-  );
+        <StaticRouter location={url}>
+          <App />
+        </StaticRouter>
+      </Provider>,
+      opts
+    ),
+    store.getState(),
+  ] as const;
   return stream;
 }
