@@ -4,12 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
     "build:client": "vite build --outDir ./dist/client",
     "build:server": "vite build --outDir ./dist/server --ssr ./src/entry-server.tsx",
     "build": "npm run build:client && npm run build:server",
-    "start": "ts-node --esm server.ts",
-    "preview": "vite preview",
+    "dev": "npm run build && ts-node --esm server.ts",
     "prepare": "husky install",
     "lint": "eslint **/*.ts",
     "lint-fix": "eslint --fix **/*.ts",
