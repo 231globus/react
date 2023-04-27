@@ -37,6 +37,7 @@ module.exports = {
     '@typescript-eslint/no-empty-function': 'off',
     '@typescript-eslint/no-explicit-any': 'error',
     '@typescript-eslint/no-var-reqiures': 'off',
+    '@typescript-eslint/no-namespace': 'off',
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
   },
