@@ -16,6 +16,7 @@
     "postinstall": "husky install",
     "test:jest": "jest --coverage",
     "cy": "cypress run --e2e",
+    "cy:open": "cypress open",
     "test:cy": "start-server-and-test start http://localhost:3001 cy && npm run nyc",
     "nyc": "npx nyc report --reporter=text-summary"
   },
@@ -54,6 +55,7 @@
     "eslint": "^8.14.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-import-resolver-typescript": "^2.7.1",
+    "eslint-plugin-cypress": "^2.13.2",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.4",
