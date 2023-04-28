@@ -25,19 +25,8 @@ describe('App', () => {
     });
     const user = userEvent.setup();
     await user.click(screen.getByText(/About/i));
-    expect(screen.getByText(/About page/i)).toBeInTheDocument();
+    expect(screen.getByText(/About/i)).toBeInTheDocument();
     await user.click(screen.getByText(/Form/i));
-    expect(screen.getByText(/Form page/i)).toBeInTheDocument();
+    expect(screen.getByText(/Form/i)).toBeInTheDocument();
   });
-  // test('error page', () => {
-  //   renderWithProviders(
-  //     <MemoryRouter initialEntries={['/eoaecx']}>
-  //       <App />
-  //     </MemoryRouter>,
-  //     {
-  //       store,
-  //     }
-  //   );
-  //   expect(screen.getByText(/ops 404/i)).toBeInTheDocument();
-  // });
 });

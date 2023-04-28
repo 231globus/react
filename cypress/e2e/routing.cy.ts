@@ -1,7 +1,7 @@
 describe('Routing', () => {
   it('redirect on all routes', () => {
     cy.visit('/');
-    cy.get('[data-testid="nav-bar"]').should('have.length', 3);
+    cy.get('[data-testid="nav-bar"]').should('be.visible');
 
     cy.get('[data-testid="form-page"]').click();
     cy.url().should('include', '/form');

@@ -7,18 +7,15 @@
     "build:client": "vite build --outDir ./dist/client",
     "build:server": "vite build --outDir ./dist/server --ssr ./src/entry-server.tsx",
     "build": "npm run build:client && npm run build:server",
+    "server": "ts-node --esm server.ts",
     "dev": "npm run build && ts-node --esm server.ts",
-    "start": "ts-node --esm server.ts",
-    "prepare": "husky install",
     "lint": "eslint **/*.ts",
-    "lint-fix": "eslint --fix **/*.ts",
     "format": "prettier -w .",
-    "postinstall": "husky install",
-    "test:jest": "jest --coverage",
     "cy": "cypress run --e2e",
     "cy:open": "cypress open",
-    "test:cy": "start-server-and-test start http://localhost:3001 cy && npm run nyc",
-    "nyc": "npx nyc report --reporter=text-summary"
+    "nyc": "npx nyc report --reporter=text-summary",
+    "test:jest": "jest",
+    "test:cy": "start-server-and-test server http://localhost:3001 cy && npm run nyc"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
