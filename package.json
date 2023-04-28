@@ -14,7 +14,7 @@
     "cy:open": "cypress open",
     "nyc": "npx nyc report --reporter=text-summary",
     "test:jest": "jest",
-    "test:cy": "start-server-and-test server http://localhost:3001 cy && npm run nyc"
+    "test:cy": "start-server-and-test dev http://localhost:3001 cy && npm run nyc"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
