@@ -1,7 +1,7 @@
-`npm run dev` or `build` for start project
+`npm run dev` for start
 
-`npm test` for test
+`npm run test:jest` for unit
 
-`npm run coverage` for coverage
+`npm run test:cy` for e2e
 
-`npm run` lint for lint
+`npm run lint` for linting
